@@ -87,7 +87,6 @@
         }
         .btn-secondary:hover { background: rgba(26, 26, 26, 0.05); }
 
-        /* Unified Input UI */
         input[type="text"], input[type="number"], input[type="date"], input[type="time"], select, textarea {
             background-color: #F2EFE6 !important;
             border: 2px solid #E5DED0 !important;
@@ -205,7 +204,7 @@
 
         <!-- 2. DASHBOARD -->
         <section id="dashboard-view" class="tab-content active">
-            <div class="text-center mb-20 text-ink">
+            <div class="text-center mb-20">
                 <h2 class="font-serif text-6xl lg:text-8xl italic mb-6 tracking-tight text-ink text-center">The Grand Tour</h2>
                 <div class="inline-block sketchbook-card p-12 lg:p-16 bg-white shadow-soft relative border border-sand-light mx-auto">
                     <div class="tape"></div>
@@ -215,11 +214,12 @@
                 </div>
             </div>
 
+            <!-- RULE OF THREE -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20 text-ink">
                 <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-ink bg-white">
                     <span class="text-[11px] uppercase font-bold text-ink block mb-4 tracking-widest text-charcoal text-center">FUND</span>
                     <span class="text-5xl font-serif font-bold italic text-ink" id="dash-remain">¥460,000</span>
-                    <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80 text-center">Remaining Travel Fund</p>
+                    <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80 text-center text-ink">Remaining Travel Fund</p>
                 </div>
                 <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-meadow bg-white">
                     <span class="text-[11px] uppercase font-bold text-ink block mb-4 tracking-widest text-charcoal text-center">Prep Status</span>
@@ -229,11 +229,12 @@
                 <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-terracotta bg-alert-wash">
                     <span class="text-[11px] uppercase font-bold text-terracotta block mb-4 tracking-widest font-bold text-center">National Alert</span>
                     <span class="text-5xl mb-2 block text-center">🇭🇺</span>
-                    <h4 class="text-sm font-bold text-terracotta uppercase text-center text-ink">March 15th: Closures</h4>
-                    <p class="text-xs font-bold text-charcoal mt-2 px-4 text-center text-ink">Strict Budapest shop closures. Museums free but busy.</p>
+                    <h4 class="text-sm font-bold text-terracotta uppercase text-center text-ink text-ink">March 15th: Closures</h4>
+                    <p class="text-xs font-bold text-charcoal mt-2 px-4 text-center text-ink text-ink">Strict Budapest shop closures. Museums free but busy.</p>
                 </div>
             </div>
 
+            <!-- ADVENTURE TASKS -->
             <div class="mb-24 text-ink">
                 <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
                     <h3 class="font-serif text-5xl italic border-l-8 border-ink pl-8 text-ink">Adventure Prep</h3>
@@ -266,7 +267,7 @@
             <div class="flex justify-between items-center mb-16">
                 <div>
                     <h2 class="font-serif text-7xl italic text-ink text-ink">Stay & Rest</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2">The Guest Register</h5>
+                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-charcoal">The Guest Register</h5>
                 </div>
                 <button onclick="toggleForm('stay-form')" class="btn-primary px-10 text-white text-ink text-white">New Residency +</button>
             </div>
@@ -277,10 +278,10 @@
                     <div class="lg:col-span-2 flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2">Residency Name</label><input type="text" id="in-stay-name" placeholder="Hotel name / Address..."></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-ink">
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Check In</label><input type="date" id="in-stay-in"></div>
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Time</label><input type="time" id="in-stay-in-t"></div>
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Check Out</label><input type="date" id="in-stay-out"></div>
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Time</label><input type="time" id="in-stay-out-t"></div>
+                    <div class="flex flex-col text-charcoal text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Check In</label><input type="date" id="in-stay-in"></div>
+                    <div class="flex flex-col text-charcoal text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Time</label><input type="time" id="in-stay-in-t"></div>
+                    <div class="flex flex-col text-charcoal text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Check Out</label><input type="date" id="in-stay-out"></div>
+                    <div class="flex flex-col text-charcoal text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Time</label><input type="time" id="in-stay-out-t"></div>
                 </div>
                 <div class="flex justify-end gap-6 text-charcoal text-ink"><button onclick="toggleForm('stay-form')" class="text-sm font-bold uppercase tracking-widest hover:underline text-charcoal">Cancel</button><button id="add-stay-btn" onclick="addStay()" class="btn-primary px-12 text-white text-ink text-white">Register Stay</button></div>
             </div>
@@ -292,16 +293,16 @@
             <div class="flex justify-between items-center mb-12 text-ink">
                 <div>
                     <h2 class="font-serif text-7xl italic text-ink text-ink">Voyage Log</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink text-ink">Transit Manifest</h5>
+                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink">Transit Manifest</h5>
                 </div>
                 <button onclick="toggleForm('trans-form')" class="btn-primary px-10 text-white text-ink text-white">New Leg +</button>
             </div>
             <div id="trans-form" class="hidden sketchbook-card p-12 mb-16 bg-white shadow-float text-ink text-ink">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8 text-ink text-charcoal">
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[11px] font-bold uppercase mb-2 block">Kind</label><select id="in-tr-kind"><option>✈️ Plane</option><option>🚆 Train</option><option>🚌 Bus</option></select></div>
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">Travel Date</label><input type="date" id="in-tr-date"></div>
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">From</label><input type="text" id="in-tr-from"></div>
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">To</label><input type="text" id="in-tr-to"></div>
+                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[11px] font-bold uppercase mb-2 block text-charcoal">Kind</label><select id="in-tr-kind"><option>✈️ Plane</option><option>🚆 Train</option><option>🚌 Bus</option></select></div>
+                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block text-charcoal">Travel Date</label><input type="date" id="in-tr-date"></div>
+                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block text-charcoal">From</label><input type="text" id="in-tr-from"></div>
+                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block text-charcoal">To</label><input type="text" id="in-tr-to"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 items-end text-charcoal text-ink text-charcoal text-ink">
                     <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block text-ink text-charcoal">Departure</label><input type="time" id="in-tr-start"></div>
@@ -325,16 +326,16 @@
                 <div class="flex gap-2 text-ink">
                     <button id="bud-all" onclick="filterCity('Budapest', 'all')" class="filter-btn active text-ink text-charcoal text-ink text-charcoal">All</button>
                     <button id="bud-sights" onclick="filterCity('Budapest', 'Sights')" class="filter-btn text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">Sights</button>
-                    <button id="bud-food" onclick="filterCity('Budapest', 'Food')" class="filter-btn text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink">Food</button>
+                    <button id="bud-food" onclick="filterCity('Budapest', 'Food')" class="filter-btn text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">Food</button>
                 </div>
             </div>
             <div id="bud-add-form" class="hidden sketchbook-card p-10 mb-16 bg-white shadow-float text-ink text-charcoal">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-charcoal text-ink">
-                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2 text-ink">Place Name</label><input type="text" id="in-bud-name" placeholder="Name..."></div>
-                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2 text-ink">Kind</label><select id="in-bud-type"><option>Sights</option><option>Food</option></select></div>
-                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2 text-ink">Note</label><input type="text" id="in-bud-note" placeholder="Note..."></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-charcoal text-ink text-ink">
+                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Place Name</label><input type="text" id="in-bud-name" placeholder="Name..."></div>
+                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Kind</label><select id="in-bud-type"><option>Sights</option><option>Food</option></select></div>
+                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Note</label><input type="text" id="in-bud-note" placeholder="Note..."></div>
                 </div>
-                <div class="flex justify-end gap-6 text-charcoal text-ink text-charcoal"><button onclick="toggleForm('bud-add-form')" class="text-sm font-bold uppercase hover:underline text-ink text-ink text-ink">Cancel</button><button onclick="addDiscovery('Budapest')" class="btn-primary px-12 text-white text-ink text-white text-ink text-white text-ink text-white">Record</button></div>
+                <div class="flex justify-end gap-6 text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink"><button onclick="toggleForm('bud-add-form')" class="text-sm font-bold uppercase hover:underline text-ink text-ink text-ink">Cancel</button><button onclick="addDiscovery('Budapest')" class="btn-primary px-12 text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white">Record</button></div>
             </div>
             <div id="budapest-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"></div>
         </section>
@@ -343,33 +344,33 @@
             <div class="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8 text-ink text-charcoal">
                 <div>
                     <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 text-ink text-ink text-ink text-ink">Vienna</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic text-ink text-charcoal text-ink text-charcoal">Imperial Hub</h5>
+                    <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">Imperial Hub</h5>
                 </div>
             </div>
             <div class="flex flex-wrap gap-4 items-center text-ink text-charcoal mb-10 text-ink text-charcoal">
-                <button onclick="toggleForm('vie-add-form')" class="btn-primary px-8 text-xs text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white">New Discovery +</button>
+                <button onclick="toggleForm('vie-add-form')" class="btn-primary px-8 text-xs text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white">New Discovery +</button>
                 <div class="flex gap-2 text-ink">
-                    <button id="vie-all" onclick="filterCity('Vienna', 'all')" class="filter-btn active text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink">All</button>
+                    <button id="vie-all" onclick="filterCity('Vienna', 'all')" class="filter-btn active text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">All</button>
                     <button id="vie-sights" onclick="filterCity('Vienna', 'Sights')" class="filter-btn text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">Sights</button>
                     <button id="vie-food" onclick="filterCity('Vienna', 'Food')" class="filter-btn text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink">Food</button>
                 </div>
             </div>
             <div id="vie-add-form" class="hidden sketchbook-card p-10 mb-16 bg-white shadow-float text-ink text-charcoal">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-charcoal text-ink text-ink">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-charcoal text-ink text-ink text-ink">
                     <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Place Name</label><input type="text" id="in-vie-name" placeholder="Name..."></div>
                     <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Kind</label><select id="in-vie-type"><option>Sights</option><option>Food</option></select></div>
                     <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Note</label><input type="text" id="in-vie-note" placeholder="Note..."></div>
                 </div>
-                <div class="flex justify-end gap-6 text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"><button onclick="toggleForm('vie-add-form')" class="text-sm font-bold uppercase hover:underline text-ink text-ink text-ink text-ink">Cancel</button><button onclick="addDiscovery('Vienna')" class="btn-primary px-12 text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white">Record</button></div>
+                <div class="flex justify-end gap-6 text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"><button onclick="toggleForm('vie-add-form')" class="text-sm font-bold uppercase hover:underline text-ink text-ink text-ink text-ink text-ink text-ink">Cancel</button><button onclick="addDiscovery('Vienna')" class="btn-primary px-12 text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white">Record</button></div>
             </div>
             <div id="vienna-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"></div>
         </section>
 
         <!-- SHARED FUND -->
-        <section id="fund-view" class="tab-content text-ink">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 text-charcoal text-ink text-ink text-ink">
-                <div class="sketchbook-card p-12 lg:col-span-1 bg-white shadow-soft relative text-center text-charcoal text-ink text-charcoal text-ink">
-                    <h3 class="font-serif text-3xl mb-12 italic border-b-2 border-paper pb-6 text-ink text-ink">Spending Split</h3>
+        <section id="fund-view" class="tab-content text-ink text-ink text-ink text-ink">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink">
+                <div class="sketchbook-card p-12 lg:col-span-1 bg-white shadow-soft relative text-center text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">
+                    <h3 class="font-serif text-3xl mb-12 italic border-b-2 border-paper pb-6 text-ink text-ink text-ink text-ink text-ink text-ink text-ink">Spending Split</h3>
                     <div class="relative h-64 mb-16 mx-auto w-full">
                         <canvas id="fundChart"></canvas>
                         <div class="chart-center-text text-ink">
@@ -378,25 +379,25 @@
                         </div>
                     </div>
                     <div class="space-y-6 pt-10 border-t-2 border-dashed border-paper text-xl font-serif italic font-bold text-ink">
-                        <div class="flex justify-between text-terracotta font-bold text-terracotta font-bold"><span>Cody:</span><span id="sum-cody">¥0</span></div>
-                        <div class="flex justify-between text-meadow font-bold text-meadow font-bold"><span>Ayano:</span><span id="sum-ayano" class="opacity-100">¥0</span></div>
+                        <div class="flex justify-between text-terracotta font-bold text-terracotta font-bold text-terracotta text-terracotta"><span>Cody:</span><span id="sum-cody">¥0</span></div>
+                        <div class="flex justify-between text-meadow font-bold text-meadow font-bold text-meadow font-bold text-meadow"><span>Ayano:</span><span id="sum-ayano">¥0</span></div>
                     </div>
                 </div>
-                <div class="lg:col-span-2 space-y-12 text-ink text-charcoal">
-                    <div class="sketchbook-card p-10 bg-white shadow-float border-t-4 border-t-ink text-charcoal text-charcoal text-charcoal text-ink">
-                        <h4 class="font-serif text-2xl mb-8 italic text-ink text-ink">Register Transaction</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-end text-charcoal">
-                            <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Item</label><input type="text" id="in-f-item" placeholder="e.g. Lunch"></div>
-                            <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Amount</label><input type="number" id="in-f-amt" placeholder="0"></div>
-                            <div class="flex flex-col text-ink"><label class="text-[11px] font-bold uppercase mb-2">Who</label><select id="in-f-payer" class="text-ink"><option value="Cody">Cody</option><option value="Ayano">Ayano</option></select></div>
-                            <button id="add-fund-btn" onclick="addFundEntry()" class="btn-primary w-full text-white text-ink text-white text-ink text-white text-ink text-white">Record</button>
+                <div class="lg:col-span-2 space-y-12 text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink">
+                    <div class="sketchbook-card p-10 bg-white shadow-float border-t-4 border-t-ink text-charcoal text-charcoal text-charcoal text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
+                        <h4 class="font-serif text-2xl mb-8 italic text-ink text-ink text-ink text-ink text-ink text-ink">Register Transaction</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-end text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink">
+                            <div class="flex flex-col text-ink text-ink text-ink text-ink"><label class="text-[11px] font-bold uppercase mb-2">Item</label><input type="text" id="in-f-item" placeholder="e.g. Lunch"></div>
+                            <div class="flex flex-col text-ink text-ink text-ink text-ink"><label class="text-[11px] font-bold uppercase mb-2">Amount</label><input type="number" id="in-f-amt" placeholder="0"></div>
+                            <div class="flex flex-col text-ink text-ink text-ink text-ink text-ink"><label class="text-[11px] font-bold uppercase mb-2 text-ink text-ink text-ink">Who</label><select id="in-f-payer" class="text-ink text-ink text-ink text-ink text-ink"><option value="Cody">Cody</option><option value="Ayano">Ayano</option></select></div>
+                            <button id="add-fund-btn" onclick="addFundEntry()" class="btn-primary w-full text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white text-ink text-white">Record</button>
                         </div>
                     </div>
 
-                    <div class="sketchbook-card p-0 bg-white overflow-hidden shadow-soft mt-10">
-                        <table class="w-full text-left text-ink text-charcoal">
-                            <thead class="bg-paper border-b-2 border-ink text-charcoal"><tr class="font-serif text-2xl text-ink text-charcoal"><th class="p-8">Detail</th><th class="p-8 text-center text-ink text-charcoal">By</th><th class="p-8 text-right text-ink text-charcoal">Amt</th><th class="p-8 w-16"></th></tr></thead>
-                            <tbody id="ledger-body" class="text-xl italic font-bold text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"></tbody>
+                    <div class="sketchbook-card p-0 bg-white overflow-hidden shadow-soft mt-10 text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
+                        <table class="w-full text-left text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">
+                            <thead class="bg-paper border-b-2 border-ink text-charcoal"><tr class="font-serif text-2xl text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"><th class="p-8">Detail</th><th class="p-8 text-center text-ink text-charcoal text-charcoal text-charcoal">By</th><th class="p-8 text-right text-ink text-charcoal text-charcoal text-charcoal">Amt</th><th class="p-8 w-16"></th></tr></thead>
+                            <tbody id="ledger-body" class="text-xl italic font-bold text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal"></tbody>
                         </table>
                     </div>
                 </div>
@@ -405,47 +406,48 @@
     </main>
 
     <!-- DETAIL MODAL -->
-    <div id="detail-modal" onclick="closeModal()">
-        <div id="detail-content" class="p-8 lg:p-12 shadow-float text-charcoal" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-6 right-8 text-4xl opacity-30 hover:opacity-100 transition text-ink">×</button>
+    <div id="detail-modal" onclick="window.closeModal()">
+        <div id="detail-content" class="p-8 lg:p-12 shadow-float text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal text-ink" onclick="event.stopPropagation()">
+            <button onclick="window.closeModal()" class="absolute top-6 right-8 text-4xl opacity-30 hover:opacity-100 transition text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">×</button>
             <div id="modal-body"></div>
         </div>
     </div>
 
     <!-- UI UTILITIES -->
-    <div id="toast" class="success-toast">✓ Diary Updated</div>
-    <div onclick="window.scrollTo(0,0)" id="back-top" class="back-to-top shadow-lg text-ink">↑</div>
+    <div id="toast" class="success-toast text-ink text-ink text-ink text-ink text-ink text-ink text-ink">✓ Diary Updated</div>
+    <div onclick="window.scrollTo(0,0)" id="back-top" class="back-to-top shadow-lg text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">↑</div>
 
-    <footer class="bg-ink py-20 mt-32 text-parchment/60 font-semibold text-ink text-ink text-ink text-ink">
+    <footer class="bg-ink py-20 mt-32 text-parchment/60 font-semibold text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
         <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left text-parchment">
             <div>
-                <h5 class="font-serif text-3xl text-parchment italic mb-6 text-parchment text-ink">Voyage Rules</h5>
-                <ul class="space-y-4 text-sm font-bold text-parchment/80 text-ink">
-                    <li class="flex items-center gap-3 text-parchment/80"><span>🎟️</span> Stamp paper tickets in boxes (Vienna)</li>
-                    <li class="flex items-center gap-3 text-parchment/80"><span>🔍</span> Inspectors at all escalators (Budapest)</li>
-                    <li class="flex items-center gap-3 text-parchment/80 text-ink text-ink"><span>🚕</span> Only hail taxis via Bolt app</li>
+                <h5 class="font-serif text-3xl text-parchment italic mb-6 text-parchment text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">Voyage Rules</h5>
+                <ul class="space-y-4 text-sm font-bold text-parchment/80 text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
+                    <li class="flex items-center gap-3 text-parchment/80 text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink"><span>🎟️</span> Stamp paper tickets in boxes (Vienna)</li>
+                    <li class="flex items-center gap-3 text-parchment/80 text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink"><span>🔍</span> Inspectors at all escalators (Budapest)</li>
+                    <li class="flex items-center gap-3 text-parchment/80 text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink"><span>🚕</span> Only hail taxis via Bolt app</li>
                 </ul>
             </div>
-            <div class="text-center text-ink text-parchment text-ink text-ink text-ink text-ink">
-                <span class="text-5xl block mb-6 text-ink">🦢</span>
-                <p class="font-serif italic text-2xl text-parchment opacity-80 text-ink text-parchment text-ink text-ink text-ink text-ink">"Discovery consists not in seeking new lands, but in seeing with new eyes."</p>
+            <div class="text-center text-ink text-parchment text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
+                <span class="text-5xl block mb-6 text-ink text-ink text-ink text-ink text-ink text-ink">🦢</span>
+                <p class="font-serif italic text-2xl text-parchment opacity-80 text-ink text-parchment text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">"Discovery consists not in seeking new lands, but in seeing with new eyes."</p>
             </div>
-            <div class="md:text-right text-ink">
-                <h5 class="font-serif text-3xl text-parchment italic mb-6 text-parchment text-ink">Registry</h5>
-                <div class="space-y-6 text-2xl font-bold uppercase tracking-widest text-parchment/80 font-sans text-ink">
-                    <button onclick="switchTab('dashboard')" class="block hover:text-terracotta transition w-full text-right text-parchment/80">Home Base</button>
-                    <button onclick="switchTab('fund')" class="block hover:text-terracotta transition w-full text-right text-parchment/80 text-ink text-ink">Expense Ledger</button>
+            <div class="md:text-right text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
+                <h5 class="font-serif text-3xl text-parchment italic mb-6 text-parchment text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">Registry</h5>
+                <div class="space-y-4 text-xs font-bold uppercase tracking-widest text-parchment/60 font-sans text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">
+                    <button onclick="switchTab('dashboard')" class="block hover:text-terracotta transition w-full text-right text-parchment/80 text-lg text-parchment/80 text-lg text-parchment/80 text-lg">Home Base</button>
+                    <button onclick="switchTab('fund')" class="block hover:text-terracotta transition w-full text-right text-parchment/80 text-lg text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink text-ink">Expense Ledger</button>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- FIREBASE MODULE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { initializeFirestore, persistentLocalCache, collection, onSnapshot, addDoc, deleteDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase Config
+        // Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDBEI-c2Qg_sGBmzfNgAOxsuu8XFzoiGLY",
             authDomain: "bluedanubediary-ebdd5.firebaseapp.com",
@@ -479,7 +481,7 @@
             { id: 'seed-voyage-1', kind: '✈️ Plane', date: '2026-03-06', from: 'Osaka (KIX)', to: 'Budapest (BUD)', start: '10:00', end: '17:40' }
         ];
         const dossierLibrary = {
-            "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains. Responsible for defending castle walls.", tips: "Arrive at 06:00 for sunrise shots of Parliament. Upper turrets free before 09:00.", addr: "Castle Hill, 1014 Budapest", hours: "Terraces: 24/7" },
+            "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains.", tips: "Arrive at 06:00 for sunrise shots of Parliament. Upper turrets free before 09:00.", addr: "Castle Hill, 1014 Budapest", hours: "Terraces: 24/7" },
             "Gül Baba's Tomb": { history: "Northernmost Islamic pilgrimage site. Bektashi warrior-poet died 1541.", tips: "Peaceful zone away from crowds. Stunning rose garden overlooking the Danube.", addr: "Mecset u. 14, 1023 Budapest", hours: "10:00-18:00 (Closed Mon)" },
             "Rudas Baths": { history: "Authentic 16th-century steam baths. Octagonal pool beneath 10m stone dome.", tips: "Check gender schedule: M (M/W/Th/F AM), W (Tue), Co-ed (Sat/Sun).", addr: "Döbrentei tér 9, 1013 Budapest", hours: "06:00-20:00" },
             "Hungarian State Opera": { history: "Designed by Miklós Ybl (1884). Pristine 19th-century interior with original gold leaf.", tips: "Dress code is relaxed for tours but smart for performances.", addr: "Andrássy út 22, 1061 Budapest", hours: "Tours 14:00/15:00" },
@@ -489,13 +491,12 @@
 
         let discoveries = [
             { id: 'seed-d-1', city: 'Budapest', type: 'Sights', name: "Fisherman's Bastion", note: "Arrive at sunrise for the best light." },
-            { id: 'seed-d-2', city: 'Budapest', type: 'Sights', name: "Gül Baba's Tomb", note: "Northernmost Islamic pilgrimage site." },
-            { id: 'seed-d-3', city: 'Budapest', type: 'Sights', name: "Rudas Baths", note: "Turkish octagonal pool from 1566." },
             { id: 'seed-d-10', city: 'Vienna', type: 'Food', name: "Schnitzelwirt", note: "⚠️ CASH ONLY. Massive portions." }
         ];
-        let expenses = [{ id: 'seed-ex-1', item: 'Flight Deposits', payer: 'Cody', amount: 165000 }];
+        let expenses = [{ id: 'seed-ex-1', item: 'Initial Flight Deposits', payer: 'Cody', amount: 165000 }];
 
-        // --- INTERNAL HELPERS ---
+        // --- CORE HELPERS ---
+
         function showToast(m) {
             const t = document.getElementById('toast');
             if(t){ t.innerText = m; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1800); }
@@ -526,7 +527,7 @@
             const remaining = Math.max(0, BUDGET_CAP - spent);
             fundChart = new Chart(ctx, { 
                 type: 'doughnut', 
-                data: { labels: ['Spent', 'Remaining'], datasets: [{ data: [spent, remaining], backgroundColor: ['#C06C54', '#EBE5CE'], borderWidth: 0, hoverOffset: 8 }] }, 
+                data: { labels: ['Spent', 'Remaining'], datasets: [{ data: [spent, remaining], backgroundColor: ['#C06C54', '#EBE5CE'], borderWidth: 0, hoverOffset: 6 }] }, 
                 options: { maintainAspectRatio: false, cutout: '82%', layout: { padding: 15 }, plugins: { legend: { display: false } } } 
             });
             const iv = document.getElementById('chart-inner-val');
@@ -557,7 +558,7 @@
                 else if(t.status === 'progress') btns += `<button onclick="window.moveTask('${t.id}', 'todo')" class="btn-secondary px-3 text-[10px]">←</button><button onclick="window.moveTask('${t.id}', 'done')" class="btn-primary flex-grow text-[10px] text-white">Done!</button>`;
                 else btns += `<button onclick="window.moveTask('${t.id}', 'progress')" class="btn-secondary flex-1 text-[10px]">← Undo</button>`;
                 btns += `</div>`;
-                scrap.innerHTML = `<button onclick="window.requestDeletion('tasks', '${t.id}')" class="absolute top-4 right-4 text-terracotta text-2xl font-bold opacity-30 hover:opacity-100 transition px-2">×</button><div class="flex justify-between items-start text-ink"><span class="font-serif italic font-bold text-lg text-ink">"${t.text}"</span></div>${btns}`;
+                scrap.innerHTML = `<button onclick="window.requestDeletion('tasks', '${t.id}')" class="absolute top-4 right-4 text-terracotta text-2xl font-bold opacity-30 hover:opacity-100 transition px-2">×</button><div class="flex justify-between items-start text-ink"><span class="font-serif italic font-bold text-lg">"${t.text}"</span></div>${btns}`;
                 const targetCol = document.getElementById(cols[t.status]);
                 if (targetCol) targetCol.appendChild(scrap);
             });
@@ -613,11 +614,11 @@
                 el.innerHTML = `
                     <button onclick="event.stopPropagation(); window.requestDeletion('discoveries', '${item.id}')" class="absolute top-4 right-4 text-charcoal text-3xl font-bold opacity-20 transition hover:opacity-100">×</button>
                     <div>
-                        <span class="text-[11px] font-bold text-meadow uppercase tracking-[0.3em] block mb-3 text-ink text-ink text-ink text-ink">${item.type}</span>
-                        <h4 class="font-serif text-4xl font-bold mb-4 italic leading-tight text-ink text-charcoal text-ink text-charcoal text-ink text-charcoal">"${item.name}"</h4>
+                        <span class="text-[11px] font-bold text-meadow uppercase tracking-[0.3em] block mb-3">${item.type}</span>
+                        <h4 class="font-serif text-4xl font-bold mb-4 italic leading-tight text-ink">"${item.name}"</h4>
                         <p class="text-lg text-charcoal font-semibold italic mb-10 leading-relaxed text-charcoal">"${item.note}"</p>
                     </div>
-                    <div class="pt-4 border-t-2 border-dotted opacity-100 text-[13px] font-bold uppercase tracking-widest text-terracotta italic text-ink text-ink text-ink">View Detail Page →</div>`;
+                    <div class="pt-4 border-t-2 border-dotted opacity-100 text-[13px] font-bold uppercase tracking-widest text-terracotta italic">View Detail Page →</div>`;
                 g.appendChild(el);
             });
         }
@@ -629,13 +630,13 @@
                 total += Number(ex.amount);
                 const row = document.createElement('tr');
                 row.className = "border-b-4 border-dotted border-paper hover:bg-alert-wash transition-colors text-ink text-charcoal";
-                row.innerHTML = `<td class="p-8 font-serif italic text-3xl font-bold">"${ex.item}"</td><td class="p-8 text-center text-charcoal text-ink text-ink text-ink text-ink"><span class="px-6 py-2 rounded-full text-xs font-bold uppercase ${ex.payer === 'Cody' ? 'bg-terracotta text-white' : 'bg-meadow text-white'}">${ex.payer}</span></td><td class="p-8 text-right font-bold text-3xl text-charcoal text-ink">¥${Number(ex.amount).toLocaleString()}</td><td class="p-8 text-center text-ink text-ink text-ink text-ink"><button onclick="window.requestDeletion('expenses', '${ex.id}')" class="text-charcoal opacity-20 hover:opacity-100 hover:text-terracotta font-bold text-5xl transition text-ink text-ink">×</button></td>`;
+                row.innerHTML = `<td class="p-8 font-serif italic text-3xl font-bold">"${ex.item}"</td><td class="p-8 text-center text-charcoal"><span class="px-6 py-2 rounded-full text-xs font-bold uppercase ${ex.payer === 'Cody' ? 'bg-terracotta text-white' : 'bg-meadow text-white'}">${ex.payer}</span></td><td class="p-8 text-right font-bold text-3xl">¥${Number(ex.amount).toLocaleString()}</td><td class="p-8 text-center"><button onclick="window.requestDeletion('expenses', '${ex.id}')" class="text-charcoal opacity-20 hover:opacity-100 hover:text-terracotta font-bold text-5xl transition">×</button></td>`;
                 body.appendChild(row);
             });
             updatePie(total); updateStats();
         }
 
-        // --- ACTIONS ---
+        // --- PUBLIC API EXPOSURE ---
 
         window.switchTab = (view) => {
             currentView = view;
@@ -654,14 +655,26 @@
             window.scrollTo(0, 0);
         };
 
-        window.toggleForm = (id) => {
-            const el = document.getElementById(id);
-            if(el) el.classList.toggle('hidden');
+        window.toggleForm = (id) => { const el = document.getElementById(id); if(el) el.classList.toggle('hidden'); };
+        window.closeModal = () => { const modal = document.getElementById('detail-modal'); if(modal) modal.style.display = 'none'; };
+        
+        window.handleSearch = () => {
+            const val = document.getElementById('global-search').value.toLowerCase();
+            if(val.includes('bud')) window.switchTab('budapest'); 
+            else if(val.includes('vie')) window.switchTab('vienna'); 
+            else if(val.includes('fun')) window.switchTab('fund');
         };
 
-        window.closeModal = () => {
-            const modal = document.getElementById('detail-modal');
-            if(modal) modal.style.display = 'none';
+        window.filterCity = (city, type) => {
+            currentFilters[city] = type;
+            const containerSelector = city === 'Budapest' ? '#budapest-view' : '#vienna-view';
+            const filterContainer = document.querySelector(containerSelector);
+            if (filterContainer) {
+                filterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                const filterId = (city === 'Budapest' ? 'bud-' : 'vie-') + type.toLowerCase();
+                const activeBtn = document.getElementById(filterId); if (activeBtn) activeBtn.classList.add('active');
+            }
+            renderGrids(city);
         };
 
         window.addTask = async () => {
@@ -715,16 +728,16 @@
             const item = discoveries.find(d => d.id == id); if(!item) return;
             const info = dossierLibrary[item.name] || { history: "Personal discovery log...", tips: "Explore and document!", addr: "City Center", hours: "Varies" };
             document.getElementById('modal-body').innerHTML = `
-                <div class="flex justify-between items-start mb-2">
+                <div class="flex justify-between items-start mb-2 text-ink">
                     <span class="text-xs font-bold text-meadow uppercase block">${item.city} • ${item.type}</span>
                     <button onclick="window.toggleEditDiscovery('${item.id}')" class="text-charcoal opacity-40 hover:opacity-100 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></button>
                 </div>
                 <h2 class="font-serif text-5xl font-bold italic text-ink mb-6">"${item.name}"</h2>
                 <div class="image-placeholder-box mb-10"></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="md:col-span-2 space-y-8 text-charcoal text-ink text-ink text-ink text-ink">
-                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Historical Context</h4><p class="leading-relaxed font-semibold">${info.history}</p></div>
-                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Traveler’s Tips</h4><p class="font-bold leading-relaxed text-ink">"${info.tips}"</p></div>
+                    <div class="md:col-span-2 space-y-8 text-charcoal">
+                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Historical Context</h4><p class="leading-relaxed font-semibold text-charcoal">${info.history}</p></div>
+                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Traveler’s Tips</h4><p class="font-bold leading-relaxed text-charcoal text-ink">"${info.tips}"</p></div>
                     </div>
                     <div class="bg-paper p-6 rounded-lg space-y-6 text-sm text-charcoal">
                         <div><strong class="uppercase text-[10px] tracking-widest text-charcoal block">Address</strong><p class="font-bold text-ink">${info.addr}</p></div>
@@ -746,7 +759,7 @@
                         <div><label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block">Address</label><input type="text" id="edit-addr" value="${info.addr}" class="edit-input text-ink"></div>
                         <div><label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block">Hours</label><input type="text" id="edit-hours" value="${info.hours}" class="edit-input text-ink"></div>
                     </div>
-                    <button onclick="window.saveDiscoveryEdit('${id}')" class="btn-primary w-full text-white mt-4 text-ink text-white">Save Changes</button>
+                    <button onclick="window.saveDiscoveryEdit('${id}')" class="btn-primary w-full text-white mt-4">Save Changes</button>
                 </div>`;
         };
 
@@ -760,25 +773,6 @@
             showToast("✓ Details Updated"); window.openDetail(id);
         };
 
-        window.filterCity = (city, type) => {
-            currentFilters[city] = type;
-            const containerSelector = city === 'Budapest' ? '#budapest-view' : '#vienna-view';
-            const filterContainer = document.querySelector(containerSelector);
-            if (filterContainer) {
-                filterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                const filterId = (city === 'Budapest' ? 'bud-' : 'vie-') + type.toLowerCase();
-                const activeBtn = document.getElementById(filterId); if (activeBtn) activeBtn.classList.add('active');
-            }
-            renderGrids(city);
-        };
-
-        window.handleSearch = () => {
-            const val = document.getElementById('global-search').value.toLowerCase();
-            if(val.includes('bud')) window.switchTab('budapest'); 
-            else if(val.includes('vie')) window.switchTab('vienna'); 
-            else if(val.includes('fund')) window.switchTab('fund');
-        };
-
         window.requestDeletion = (type, id) => {
             let cardId = null;
             if (type === 'discoveries') cardId = `discovery-card-${id}`;
@@ -787,11 +781,7 @@
             else if (type === 'voyages') cardId = `voyage-card-${id}`;
             
             const targetCard = document.getElementById(cardId);
-            if (type === 'expenses') {
-                if (confirm("Discard this expense?")) window.confirmDeletion(type, id);
-                return;
-            }
-
+            if (type === 'expenses') { if (confirm("Discard this expense?")) window.confirmDeletion(type, id); return; }
             if (targetCard) {
                 const ov = document.createElement('div');
                 ov.className = 'confirm-overlay shadow-float text-ink';
@@ -801,15 +791,8 @@
         };
 
         window.confirmDeletion = async (type, id, cardId) => {
-            // Visual transition
-            if (cardId) {
-                const el = document.getElementById(cardId);
-                if (el) el.classList.add('removing');
-            }
-            
+            if (cardId) { const el = document.getElementById(cardId); if (el) el.classList.add('removing'); }
             document.querySelectorAll('.confirm-overlay').forEach(el => el.remove());
-
-            // Delay actual logic for animation to play
             setTimeout(async () => {
                 if(!currentUserId || id.toString().startsWith('seed-')) {
                     if(type === 'tasks') tasks = tasks.filter(x => x.id !== id);
@@ -825,38 +808,27 @@
         };
 
         // --- DATABASE SYNC ---
+
         function setupSync() {
-            const collectionNames = ['tasks', 'stays', 'voyages', 'discoveries', 'expenses'];
-            collectionNames.forEach(colName => {
+            const colNames = ['tasks', 'stays', 'voyages', 'discoveries', 'expenses'];
+            colNames.forEach(colName => {
                 const q = collection(db, 'artifacts', appId, 'public', 'data', colName);
-                onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
-                    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    // Only overwrite seed if there is real data in cloud, or if this is the confirmed cloud result
-                    if (!snapshot.empty || !snapshot.metadata.fromCache) {
+                onSnapshot(q, { includeMetadataChanges: true }, (snap) => {
+                    const data = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    if (!snap.empty || !snap.metadata.fromCache) {
                         if (colName === 'tasks') { tasks = data.length > 0 ? data : tasks; renderTasks(); }
                         if (colName === 'stays') { stays = data.length > 0 ? data : stays; renderStays(); }
                         if (colName === 'voyages') { voyages = data.length > 0 ? data : voyages; renderVoyages(); }
                         if (colName === 'discoveries') { discoveries = data.length > 0 ? data : discoveries; renderGrids('Budapest'); renderGrids('Vienna'); }
                         if (colName === 'expenses') { expenses = data.length > 0 ? data : expenses; renderFund(); }
                     }
-                    if (snapshot.empty && !snapshot.metadata.fromCache) {
-                        // Truly empty cloud - clean up
-                        if (colName === 'tasks') { tasks = []; renderTasks(); }
-                        if (colName === 'stays') { stays = []; renderStays(); }
-                        if (colName === 'voyages') { voyages = []; renderVoyages(); }
-                        if (colName === 'discoveries') { discoveries = []; renderGrids('Budapest'); renderGrids('Vienna'); }
-                        if (colName === 'expenses') { expenses = []; renderFund(); }
-                    }
-                }, (error) => console.error(`Sync error:`, error));
+                }, (err) => console.error(`Sync error for ${colName}:`, err));
             });
         }
 
         async function initAuthAndData() {
             setupSync(); 
-            onAuthStateChanged(auth, (user) => {
-                if (user) currentUserId = user.uid;
-                else signInAnonymously(auth).catch(err => console.error("Auth error:", err));
-            });
+            onAuthStateChanged(auth, (user) => { if (user) currentUserId = user.uid; else signInAnonymously(auth).catch(err => console.error("Auth error:", err)); });
         }
 
         // --- INIT ---
@@ -865,10 +837,7 @@
         window.onload = () => { 
             const gridIds = ['budapest-grid', 'vienna-grid', 'trans-grid'];
             gridIds.forEach(id => renderSkeleton(id, 3));
-            initAuthAndData(); 
-            updateCountdown(); 
-            setInterval(updateCountdown, 86400000); 
-            window.switchTab('dashboard');
+            initAuthAndData(); updateCountdown(); setInterval(updateCountdown, 86400000); window.switchTab('dashboard');
         };
     </script>
 </body>
