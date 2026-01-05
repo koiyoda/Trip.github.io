@@ -262,8 +262,8 @@
             
             <div id="stay-form" class="hidden sketchbook-card p-12 mb-16 bg-white shadow-float text-ink">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 text-ink">
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">City</label><select id="in-stay-city"><option>Budapest</option><option>Vienna</option></select></div>
-                    <div class="lg:col-span-2 flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Residency Name</label><input type="text" id="in-stay-name" placeholder="Hotel name / Address..."></div>
+                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2">City</label><select id="in-stay-city"><option>Budapest</option><option>Vienna</option></select></div>
+                    <div class="lg:col-span-2 flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2">Residency Name</label><input type="text" id="in-stay-name" placeholder="Hotel name / Address..."></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-ink">
                     <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Check In</label><input type="date" id="in-stay-in"></div>
@@ -281,20 +281,20 @@
             <div class="flex justify-between items-center mb-12">
                 <div>
                     <h2 class="font-serif text-7xl italic text-ink text-ink">Voyage Log</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink">Transit Manifest</h5>
+                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink text-ink">Transit Manifest</h5>
                 </div>
                 <button onclick="toggleForm('trans-form')" class="btn-primary px-10 text-white">New Leg +</button>
             </div>
-            <div id="trans-form" class="hidden sketchbook-card p-12 mb-16 bg-white shadow-float text-ink">
+            <div id="trans-form" class="hidden sketchbook-card p-12 mb-16 bg-white shadow-float text-ink text-ink">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8 text-ink text-charcoal">
                     <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2 block">Kind</label><select id="in-tr-kind"><option>✈️ Plane</option><option>🚆 Train</option><option>🚌 Bus</option></select></div>
-                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2 block">Travel Date</label><input type="date" id="in-tr-date"></div>
+                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Travel Date</label><input type="date" id="in-tr-date"></div>
                     <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">From</label><input type="text" id="in-tr-from"></div>
                     <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">To</label><input type="text" id="in-tr-to"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 items-end text-ink text-charcoal text-ink">
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Departure</label><input type="time" id="in-tr-start"></div>
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Arrival</label><input type="time" id="in-tr-end"></div>
+                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block text-ink text-charcoal">Departure</label><input type="time" id="in-tr-start"></div>
+                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block text-ink text-charcoal">Arrival</label><input type="time" id="in-tr-end"></div>
                     <button id="add-voyage-btn" onclick="addVoyage()" class="btn-primary w-full text-white">Record Leg</button>
                 </div>
             </div>
@@ -305,7 +305,7 @@
         <section id="budapest-view" class="tab-content text-ink">
             <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 text-ink text-charcoal">
                 <div>
-                    <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-8 text-ink text-ink">Budapest</h2>
+                    <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 text-ink text-ink">Budapest</h2>
                     <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic text-ink text-charcoal">Thermals & Grandeur</h5>
                 </div>
                 <div class="flex flex-wrap gap-4 items-center text-ink text-charcoal">
@@ -318,10 +318,10 @@
                 </div>
             </div>
             <div id="bud-add-form" class="hidden sketchbook-card p-10 mb-16 bg-white shadow-float text-ink text-charcoal text-ink">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-ink text-charcoal text-ink">
-                    <div class="flex flex-col"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Place Name</label><input type="text" id="in-bud-name" placeholder="Name..."></div>
-                    <div class="flex flex-col"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Kind</label><select id="in-bud-type"><option>Sights</option><option>Food</option></select></div>
-                    <div class="flex flex-col"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Note</label><input type="text" id="in-bud-note" placeholder="Note..."></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-ink text-charcoal text-ink text-ink">
+                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Place Name</label><input type="text" id="in-bud-name" placeholder="Name..."></div>
+                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Kind</label><select id="in-bud-type"><option>Sights</option><option>Food</option></select></div>
+                    <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Note</label><input type="text" id="in-bud-note" placeholder="Note..."></div>
                 </div>
                 <div class="flex justify-end gap-6 text-charcoal"><button onclick="toggleForm('bud-add-form')" class="text-sm font-bold uppercase hover:underline">Cancel</button><button onclick="addDiscovery('Budapest')" class="btn-primary px-12 text-white">Record</button></div>
             </div>
@@ -331,7 +331,7 @@
         <section id="vienna-view" class="tab-content text-ink">
             <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 text-ink text-charcoal text-ink">
                 <div>
-                    <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-8 text-ink text-ink text-ink">Vienna</h2>
+                    <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 text-ink text-ink text-ink">Vienna</h2>
                     <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic text-ink text-charcoal text-ink">Imperial Hub</h5>
                 </div>
                 <div class="flex flex-wrap gap-4 items-center text-ink text-charcoal text-ink">
@@ -366,26 +366,26 @@
                             <span class="text-4xl font-serif font-bold italic text-ink text-ink" id="chart-inner-val">¥460k</span>
                         </div>
                     </div>
-                    <div class="space-y-6 pt-10 border-t-2 border-dashed border-paper text-xl font-serif italic font-bold text-ink text-charcoal text-ink">
+                    <div class="space-y-6 pt-10 border-t-2 border-dashed border-paper text-xl font-serif italic font-bold text-ink text-charcoal text-ink text-ink text-ink">
                         <div class="flex justify-between text-terracotta font-bold"><span>Cody:</span><span id="sum-cody">¥0</span></div>
                         <div class="flex justify-between text-meadow font-bold"><span>Ayano:</span><span id="sum-ayano">¥0</span></div>
                     </div>
                 </div>
                 <div class="lg:col-span-2 space-y-12 text-ink text-charcoal text-ink text-charcoal text-ink">
                     <div class="sketchbook-card p-10 bg-white shadow-float border-t-4 border-t-ink text-ink text-charcoal">
-                        <h4 class="font-serif text-2xl mb-8 italic text-ink text-ink text-ink text-ink">Register Transaction</h4>
+                        <h4 class="font-serif text-2xl mb-8 italic text-ink text-ink text-ink text-ink text-ink">Register Transaction</h4>
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-end text-ink">
                             <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Item</label><input type="text" id="in-f-item" placeholder="e.g. Lunch"></div>
                             <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Amount</label><input type="number" id="in-f-amt" placeholder="0"></div>
-                            <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Who</label><select id="in-f-payer"><option>Cody</option><option>Ayano</option></select></div>
+                            <div class="flex flex-col text-ink"><label class="text-[11px] font-bold text-charcoal uppercase mb-2">Who</label><select id="in-f-payer"><option value="Cody">Cody</option><option value="Ayano">Ayano</option></select></div>
                             <button id="add-fund-btn" onclick="addFundEntry()" class="btn-primary w-full text-white">Record</button>
                         </div>
                     </div>
 
-                    <div class="sketchbook-card p-0 bg-white overflow-hidden shadow-soft mt-10 text-ink">
+                    <div class="sketchbook-card p-0 bg-white overflow-hidden shadow-soft mt-10 text-ink text-ink">
                         <table class="w-full text-left">
-                            <thead class="bg-paper border-b-2 border-ink text-ink text-charcoal text-ink"><tr class="font-serif text-2xl text-ink text-ink"><th class="p-8 text-ink text-ink">Detail</th><th class="p-8 text-center text-ink text-ink text-ink">By</th><th class="p-8 text-right text-ink text-ink text-ink">Amt</th><th class="p-8 w-16 text-ink text-ink text-ink"></th></tr></thead>
-                            <tbody id="ledger-body" class="text-xl italic font-bold text-ink text-charcoal"></tbody>
+                            <thead class="bg-paper border-b-2 border-ink text-ink text-charcoal text-ink text-ink"><tr class="font-serif text-2xl text-ink text-ink text-ink"><th class="p-8 text-ink text-ink text-ink">Detail</th><th class="p-8 text-center text-ink text-ink text-ink">By</th><th class="p-8 text-right text-ink text-ink text-ink">Amt</th><th class="p-8 w-16 text-ink text-ink text-ink"></th></tr></thead>
+                            <tbody id="ledger-body" class="text-xl italic font-bold text-ink text-charcoal text-ink"></tbody>
                         </table>
                     </div>
                 </div>
@@ -395,8 +395,8 @@
 
     <!-- DETAIL MODAL -->
     <div id="detail-modal" onclick="closeModal(event)">
-        <div id="detail-content" class="p-8 lg:p-12 shadow-float text-charcoal text-ink text-ink" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-6 right-8 text-4xl opacity-30 hover:opacity-100 transition text-ink text-ink text-ink">×</button>
+        <div id="detail-content" class="p-8 lg:p-12 shadow-float text-charcoal text-ink text-ink text-ink text-ink" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-6 right-8 text-4xl opacity-30 hover:opacity-100 transition text-ink text-ink text-ink text-ink text-ink">×</button>
             <div id="modal-body"></div>
         </div>
     </div>
@@ -432,24 +432,22 @@
     <!-- FIREBASE MODULE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, updateDoc, doc, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase Configuration
+        // Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDBEI-c2Qg_sGBmzfNgAOxsuu8XFzoiGLY",
             authDomain: "bluedanubediary-ebdd5.firebaseapp.com",
             projectId: "bluedanubediary-ebdd5",
             storageBucket: "bluedanubediary-ebdd5.firebasestorage.app",
             messagingSenderId: "338661642306",
-            appId: "1:338661642306:web:e30ecf898215fc4cbf9ddb",
-            measurementId: "G-6ZKYWMPLB9"
+            appId: "1:338661642306:web:e30ecf898215fc4cbf9ddb"
         };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-
         const appId = 'bluedanubediary-ebdd5';
 
         // --- GLOBAL STATE ---
@@ -466,38 +464,12 @@
         const DEPARTURE = new Date(2026, 2, 6, 0, 0, 0).getTime();
 
         // --- LOGIC FUNCTIONS ---
+
         function updateCountdown() {
             const now = new Date().getTime();
             const diff = DEPARTURE - now;
             const timer = document.getElementById('countdown-timer');
             if (timer) timer.innerText = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
-        }
-
-        function switchTab(view) {
-            currentView = view;
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            const target = document.getElementById(view + '-view');
-            if (target) target.classList.add('active');
-            
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.dataset.view === view) btn.classList.add('active');
-            });
-
-            const bc = document.getElementById('breadcrumb-current');
-            if(bc) bc.innerText = view.toUpperCase();
-            
-            if(view === 'fund') renderFund();
-            if(view === 'stay') renderStays();
-            if(view === 'voyage') renderVoyages();
-            if(view === 'budapest' || view === 'vienna') renderGrids(view.charAt(0).toUpperCase() + view.slice(1));
-            if(view === 'dashboard') renderTasks();
-            window.scrollTo(0, 0);
-        }
-
-        function handleSearch() {
-            const val = document.getElementById('global-search').value.toLowerCase();
-            if(val.includes('bud')) switchTab('budapest'); else if(val.includes('vie')) switchTab('vienna'); else if(val.includes('fund')) switchTab('fund');
         }
 
         function showToast(m) { 
@@ -514,84 +486,34 @@
             if(el) el.classList.toggle('hidden'); 
         }
 
-        function openDetail(id) {
-            const item = discoveries.find(d => d.id == id); if(!item) return;
-            
-            const dossier = {
-                "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains. Never a real fortification, designed as a viewing terrace.", tips: "Arrive silhouetted Parliament at 06:00. Upper turrets are free before 09:00.", addr: "Szentháromság tér", hours: "Terraces: 24/7" },
-                "Gül Baba's Tomb": { history: "Northernmost Islamic pilgrimage site. Bektashi warrior-poet died 1541 during Ottoman capture of Buda.", tips: "Stark uphill walk. Peaceful zone away from tourist crowds.", addr: "Mecset utca 14", hours: "10:00-18:00 (Closed Mon)" },
-                "Rudas Baths": { history: "Authentic 16th-century steam baths. Octagonal pool beneath 10m stone dome with star skylights.", tips: "Unique rooftop panoramic hot tub. Check gender schedule: Men (M/W/Th/F AM), Women (Tue), Co-ed (Sat/Sun).", addr: "Döbrentei tér 9", hours: "06:00-20:00" },
-                "Hungarian State Opera": { history: "Designed by Miklós Ybl (1884). Pristine 19th-century interior unlike Vienna's bombed auditorium.", tips: "Luxury box seats cost same as 'nosebleeds' in Vienna. Smart casual is appropriate.", addr: "Andrássy út 22", hours: "Tours 14:00/15:00" },
-                "Retró Lángos": { history: "Elevated definitive street food from metro-snack to sit-down feast.", tips: "Get the 'Classic' with sour cream, cheese, and garlic water.", addr: "Bajcsy-Zsilinszky út 25", hours: "11:00-22:00" },
-                "Schnitzelwirt": { history: "Legendary Vienna budget king. Rough charm and massive portions.", tips: "CASH ONLY established. No cards. Be prepared for loud atmosphere.", addr: "Neubaugasse 52", hours: "11:00-22:00 (Closed Sun/Mon)" }
-            };
-            
-            const info = dossier[item.name] || { history: "Personal discovery entry...", tips: "Explore and document!", addr: "City Center", hours: "Varies" };
-
-            document.getElementById('modal-body').innerHTML = `
-                <span class="text-xs font-bold text-meadow uppercase tracking-[0.4em] block mb-2">${item.city} • ${item.type}</span>
-                <h2 class="font-serif text-5xl font-bold italic text-ink mb-6 text-ink">"${item.name}"</h2>
-                <div class="image-placeholder mb-10 text-ink"><div><p class="text-4xl mb-2">📸</p><p class="text-[10px] uppercase tracking-widest opacity-40">Add Memory Here</p></div></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="md:col-span-2 space-y-8 text-charcoal text-ink">
-                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Historical Context</h4><p class="leading-relaxed font-semibold text-ink">${info.history}</p></div>
-                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Traveler’s Tips</h4><p class="font-bold leading-relaxed text-ink">"${info.tips}"</p></div>
-                    </div>
-                    <div class="bg-paper p-6 rounded-lg space-y-6 text-sm text-charcoal">
-                        <div><strong class="uppercase text-[10px] tracking-widest text-gray-400 block">Address</strong><p class="font-bold text-ink">${info.addr}</p></div>
-                        <div><strong class="uppercase text-[10px] tracking-widest text-gray-400 block">Hours</strong><p class="font-bold text-ink">${info.hours}</p></div>
-                    </div>
-                </div>`;
-            document.getElementById('detail-modal').style.display = 'flex';
+        function closeModal() { 
+            document.getElementById('detail-modal').style.display = 'none'; 
         }
 
-        function closeModal() { document.getElementById('detail-modal').style.display = 'none'; }
-
-        function requestDeletion(type, id) {
-            let targetCard = null;
-            if (type === 'discoveries') targetCard = document.getElementById(`discovery-card-${id}`);
-            if (type === 'tasks') targetCard = document.getElementById(`task-card-${id}`);
-            if (type === 'stays') targetCard = document.getElementById(`stay-card-${id}`);
-            if (type === 'voyages') targetCard = document.getElementById(`voyage-card-${id}`);
-            
-            if (targetCard) {
-                const overlay = document.createElement('div');
-                overlay.className = 'confirm-overlay shadow-float';
-                overlay.onclick = (e) => e.stopPropagation();
-                overlay.innerHTML = `
-                    <p class="font-serif text-2xl italic mb-6 text-ink">Discard this entry?</p>
-                    <div class="flex gap-4 w-full px-4 text-charcoal text-ink">
-                        <button onclick="this.parentElement.parentElement.remove()" class="btn-secondary flex-1">Keep</button>
-                        <button onclick="confirmDeletion('${type}', '${id}')" class="btn-primary flex-1 text-white">Yes</button>
-                    </div>
-                `;
-                targetCard.appendChild(overlay);
-            } else {
-                if (confirm("Discard this record?")) confirmDeletion(type, id);
-            }
+        function updateStats() {
+            const done = tasks.filter(t => t.status === 'done').length;
+            const pct = document.getElementById('dash-task-pct'); 
+            if(pct) pct.innerText = (tasks.length > 0 ? Math.round((done / tasks.length) * 100) : 0) + '%';
+            const total = expenses.reduce((s, c) => s + Number(c.amount), 0);
+            const rm = document.getElementById('dash-remain'); 
+            if(rm) rm.innerText = `¥${(BUDGET_CAP - total).toLocaleString()}`;
         }
 
-        async function confirmDeletion(type, id) {
-            if(!currentUserId) return;
-            await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', type, id));
-            showToast("✓ Entry Discarded");
-        }
-
-        // --- FILTER LOGIC (FIXED) ---
-        function filterCity(city, type) {
-            currentFilters[city] = type;
-            const containerSelector = city === 'Budapest' ? '#budapest-view' : '#vienna-view';
-            const gridId = city.toLowerCase() + '-grid';
-            
-            document.querySelector(containerSelector).querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            const filterId = (city === 'Budapest' ? 'bud-' : 'vie-') + type.toLowerCase();
-            const activeBtn = document.getElementById(filterId);
-            if (activeBtn) activeBtn.classList.add('active');
-
-            renderGrids(city);
+        let fundChart = null;
+        function updatePie(c, a) { 
+            const cc = document.getElementById('fundChart'); 
+            if(!cc) return; 
+            const ctx = cc.getContext('2d'); 
+            if(fundChart) fundChart.destroy(); 
+            fundChart = new Chart(ctx, { 
+                type: 'doughnut', 
+                data: { labels: ['Cody Spent', 'Ayano Spent'], datasets: [{ data: (c+a > 0) ? [c, a] : [1, 1], backgroundColor: ['#C06C54', '#8DA47E'], borderWidth: 0, hoverOffset: 25 }] }, 
+                options: { maintainAspectRatio: false, cutout: '82%', plugins: { legend: { display: false } } } 
+            }); 
         }
 
         // --- RENDERERS ---
+
         function renderTasks() {
             const cols = { todo: 'col-todo', progress: 'col-progress', done: 'col-done' };
             Object.values(cols).forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = ''; });
@@ -599,7 +521,7 @@
                 const scrap = document.createElement('div');
                 scrap.id = `task-card-${t.id}`;
                 scrap.className = `p-4 sketchbook-card bg-white shadow-soft ${t.status === 'done' ? 'opacity-40 grayscale' : ''}`;
-                let btns = `<div class="flex gap-2 mt-4 text-ink">`;
+                let btns = `<div class="flex gap-2 mt-4">`;
                 if(t.status === 'todo') btns += `<button onclick="moveTask('${t.id}', 'progress')" class="btn-secondary flex-1 text-[10px]">Start →</button>`;
                 else if(t.status === 'progress') btns += `<button onclick="moveTask('${t.id}', 'todo')" class="btn-secondary px-3 text-[10px]">←</button><button onclick="moveTask('${t.id}', 'done')" class="btn-primary flex-grow text-[10px] text-white">Done!</button>`;
                 else btns += `<button onclick="moveTask('${t.id}', 'progress')" class="btn-secondary flex-1 text-[10px]">← Undo</button>`;
@@ -621,8 +543,8 @@
                     <div class="flex justify-between border-b pb-3 mb-6 text-charcoal"><span class="text-[10px] font-bold text-meadow uppercase tracking-widest text-ink">${s.city} Lodge</span></div>
                     <h4 class="font-serif text-4xl font-bold mb-8 italic text-ink">"${s.name || 'Unnamed Residency'}"</h4>
                     <div class="grid grid-cols-2 gap-8 font-bold border-l-4 border-paper pl-8 text-charcoal">
-                        <div><p class="text-[9px] text-gray-400 uppercase tracking-widest leading-none mb-1 text-ink">Arrival</p><p class="text-xl text-ink">${s.inD || 'TBD'}</p><p class="text-xs italic opacity-60">at ${s.inT || '--'}</p></div>
-                        <div><p class="text-[9px] text-gray-400 uppercase tracking-widest leading-none mb-1 text-ink">Departure</p><p class="text-xl text-ink">${s.outD || 'TBD'}</p><p class="text-xs italic opacity-60">at ${s.outT || '--'}</p></div>
+                        <div><p class="text-[9px] text-gray-400 uppercase tracking-widest leading-none mb-1 text-ink">Arrival</p><p class="text-xl text-ink">${s.inD || 'TBD'}</p><p class="text-xs italic opacity-60 text-ink">at ${s.inT || '--'}</p></div>
+                        <div><p class="text-[9px] text-gray-400 uppercase tracking-widest leading-none mb-1 text-ink">Departure</p><p class="text-xl text-ink">${s.outD || 'TBD'}</p><p class="text-xs italic opacity-60 text-ink">at ${s.outT || '--'}</p></div>
                     </div>`;
                 g.appendChild(el);
             });
@@ -634,7 +556,7 @@
                 const el = document.createElement('div');
                 el.id = `voyage-card-${v.id}`;
                 el.className = "ticket-stub card-layer p-10 flex flex-col justify-between shadow-soft bg-white rounded-lg border border-sand-light relative sketchbook-card";
-                el.innerHTML = `<button onclick="requestDeletion('voyages', '${v.id}')" class="absolute top-4 right-4 text-charcoal font-bold text-3xl opacity-20 hover:opacity-100 transition">×</button>
+                el.innerHTML = `<button onclick="requestDeletion('voyages', '${v.id}')" class="absolute top-4 right-4 text-charcoal font-bold text-3xl opacity-20 hover:opacity-100 transition text-ink text-ink">×</button>
                     <div class="flex justify-between items-center mb-8 text-ink text-charcoal"><span class="text-xs font-bold text-ink/40 uppercase tracking-widest text-charcoal">${v.kind}</span></div>
                     <p class="font-serif italic text-3xl text-terracotta font-bold mb-4">${v.date || 'TBD'}</p>
                     <div class="space-y-4 border-l-4 border-paper pl-8 mb-8 font-serif italic text-3xl text-charcoal"><p class="text-gray-400 text-[11px] uppercase font-bold tracking-[0.4em] mb-1 text-ink">Route</p><p class="leading-tight text-ink font-bold text-ink">${v.from} ➔ ${v.to}</p></div>
@@ -656,18 +578,44 @@
                 el.className = "sketchbook-card p-12 flex flex-col justify-between bg-white shadow-soft relative cursor-pointer";
                 el.onclick = () => openDetail(item.id);
                 el.innerHTML = `
-                    <button onclick="event.stopPropagation(); requestDeletion('discoveries', '${item.id}')" class="absolute top-4 right-4 text-charcoal text-3xl font-bold opacity-20 transition hover:opacity-100">×</button>
+                    <button onclick="event.stopPropagation(); requestDeletion('discoveries', '${item.id}')" class="absolute top-4 right-4 text-charcoal text-3xl font-bold opacity-20 transition hover:opacity-100 text-ink">×</button>
                     <div>
                         <span class="text-[11px] font-bold text-meadow uppercase tracking-[0.3em] block mb-3 text-ink">${item.type}</span>
                         <h4 class="font-serif text-4xl font-bold mb-4 italic leading-tight text-ink text-charcoal">"${item.name}"</h4>
                         <p class="text-lg text-charcoal font-semibold italic mb-10 leading-relaxed text-ink text-charcoal">"${item.note}"</p>
                     </div>
-                    <div class="pt-4 border-t-2 border-dotted opacity-40 text-[9px] font-bold uppercase tracking-widest text-ink italic text-ink">View Detail Page →</div>`;
+                    <div class="pt-4 border-t-2 border-dotted opacity-40 text-[9px] font-bold uppercase tracking-widest text-ink italic text-ink text-ink">View Detail Page →</div>`;
                 g.appendChild(el);
             });
         }
 
-        // --- ACTIONS ---
+        function renderFund() {
+            const body = document.getElementById('ledger-body'); if(!body) return; body.innerHTML = '';
+            let cody = 0, ayano = 0;
+            expenses.sort((a,b) => (b.created || 0) - (a.created || 0)).forEach((ex) => {
+                if(ex.payer === 'Cody') cody += Number(ex.amount); else ayano += Number(ex.amount);
+                const row = document.createElement('tr');
+                row.className = "border-b-4 border-dotted border-paper hover:bg-alert-wash transition-colors text-ink text-charcoal text-ink text-ink";
+                row.innerHTML = `<td class="p-8 font-serif italic text-3xl font-bold text-ink text-charcoal">"${ex.item}"</td><td class="p-8 text-center text-charcoal text-ink"><span class="px-6 py-2 rounded-full text-xs font-bold uppercase ${ex.payer === 'Cody' ? 'bg-terracotta text-white' : 'bg-meadow text-white'}">${ex.payer}</span></td><td class="p-8 text-right font-bold text-3xl text-charcoal text-ink">¥${Number(ex.amount).toLocaleString()}</td><td class="p-8 text-center text-ink text-ink"><button onclick="requestDeletion('expenses', '${ex.id}')" class="text-charcoal opacity-20 hover:opacity-100 hover:text-terracotta font-bold text-5xl transition text-ink">×</button></td>`;
+                body.appendChild(row);
+            });
+            const spent = cody + ayano;
+            if(document.getElementById('sum-cody')) document.getElementById('sum-cody').innerText = `¥${cody.toLocaleString()}`;
+            if(document.getElementById('sum-ayano')) document.getElementById('sum-ayano').innerText = `¥${ayano.toLocaleString()}`;
+            if(document.getElementById('chart-inner-val')) document.getElementById('chart-inner-val').innerText = `¥${Math.round((BUDGET_CAP - spent)/1000)}k`;
+            
+            updatePie(cody, ayano); 
+            updateStats();
+        }
+
+        // --- ASYNC DATABASE ACTIONS ---
+
+        async function confirmDeletion(type, id) {
+            if(!currentUserId) return;
+            await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', type, id));
+            showToast("✓ Record Removed");
+        }
+
         async function addTask() {
             const i = document.getElementById('task-input-el');
             if(!i.value.trim() || !currentUserId) return;
@@ -709,24 +657,119 @@
             document.getElementById('in-f-item').value=''; document.getElementById('in-f-amt').value='';
         }
 
+        // --- UI INTERACTION ---
+
+        function switchTab(view) {
+            currentView = view;
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById(view + '-view');
+            if (target) target.classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.view === view) btn.classList.add('active');
+            });
+
+            const bc = document.getElementById('breadcrumb-current');
+            if(bc) bc.innerText = view.toUpperCase();
+            
+            if(view === 'fund') renderFund();
+            if(view === 'stay') renderStays();
+            if(view === 'voyage') renderVoyages();
+            if(view === 'budapest' || view === 'vienna') renderGrids(view.charAt(0).toUpperCase() + view.slice(1));
+            if(view === 'dashboard') renderTasks();
+            window.scrollTo(0, 0);
+        }
+
+        function filterCity(city, type) {
+            currentFilters[city] = type;
+            const containerSelector = city === 'Budapest' ? '#budapest-view' : '#vienna-view';
+            
+            document.querySelector(containerSelector).querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            const filterId = (city === 'Budapest' ? 'bud-' : 'vie-') + type.toLowerCase();
+            const activeBtn = document.getElementById(filterId);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            renderGrids(city);
+        }
+
+        function openDetail(id) {
+            const item = discoveries.find(d => d.id == id); if(!item) return;
+            
+            const dossier = {
+                "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains. Never a real fortification, designed as a viewing terrace.", tips: "Arrive silhouetted Parliament at 06:00. Upper turrets are free before 09:00.", addr: "Szentháromság tér", hours: "Terraces: 24/7" },
+                "Gül Baba's Tomb": { history: "Northernmost Islamic pilgrimage site. Bektashi warrior-poet died 1541 during Ottoman capture of Buda.", tips: "Stark uphill walk. Peaceful zone away from tourist crowds.", addr: "Mecset utca 14", hours: "10:00-18:00 (Closed Mon)" },
+                "Rudas Baths": { history: "Authentic 16th-century steam baths. Octagonal pool beneath 10m stone dome with star skylights.", tips: "Unique rooftop panoramic hot tub. Check gender schedule: Men (M/W/Th/F AM), Women (Tue), Co-ed (Sat/Sun).", addr: "Döbrentei tér 9", hours: "06:00-20:00" },
+                "Hungarian State Opera": { history: "Designed by Miklós Ybl (1884). Pristine 19th-century interior unlike Vienna's bombed auditorium.", tips: "Luxury box seats cost same as 'nosebleeds' in Vienna. Smart casual is appropriate.", addr: "Andrássy út 22", hours: "Tours 14:00/15:00" },
+                "Retró Lángos": { history: "Elevated definitive street food from metro-snack to sit-down feast.", tips: "Get the 'Classic' with sour cream, cheese, and garlic water.", addr: "Bajcsy-Zsilinszky út 25", hours: "11:00-22:00" },
+                "Schnitzelwirt": { history: "Legendary Vienna budget king. Rough charm and massive portions.", tips: "CASH ONLY established. No cards. Be prepared for loud atmosphere.", addr: "Neubaugasse 52", hours: "11:00-22:00 (Closed Sun/Mon)" }
+            };
+            
+            const info = dossier[item.name] || { history: "Personal discovery entry...", tips: "Explore and document!", addr: "City Center", hours: "Varies" };
+
+            document.getElementById('modal-body').innerHTML = `
+                <span class="text-xs font-bold text-meadow uppercase tracking-[0.4em] block mb-2">${item.city} • ${item.type}</span>
+                <h2 class="font-serif text-5xl font-bold italic text-ink mb-6 text-ink">"${item.name}"</h2>
+                <div class="image-placeholder mb-10 text-ink"><div><p class="text-4xl mb-2">📸</p><p class="text-[10px] uppercase tracking-widest opacity-40">Add Memory Here</p></div></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="md:col-span-2 space-y-8 text-charcoal text-ink">
+                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Historical Context</h4><p class="leading-relaxed font-semibold text-ink text-ink">${info.history}</p></div>
+                        <div><h4 class="font-serif text-2xl italic border-b mb-3 text-ink">Traveler’s Tips</h4><p class="font-bold leading-relaxed text-ink text-ink">"${info.tips}"</p></div>
+                    </div>
+                    <div class="bg-paper p-6 rounded-lg space-y-6 text-sm text-charcoal">
+                        <div><strong class="uppercase text-[10px] tracking-widest text-gray-400 block">Address</strong><p class="font-bold text-ink">${info.addr}</p></div>
+                        <div><strong class="uppercase text-[10px] tracking-widest text-gray-400 block">Hours</strong><p class="font-bold text-ink">${info.hours}</p></div>
+                    </div>
+                </div>`;
+            document.getElementById('detail-modal').style.display = 'flex';
+        }
+
+        function handleSearch() {
+            const val = document.getElementById('global-search').value.toLowerCase();
+            if(val.includes('bud')) switchTab('budapest'); else if(val.includes('vie')) switchTab('vienna'); else if(val.includes('fund')) switchTab('fund');
+        }
+
+        function requestDeletion(type, id) {
+            let targetCard = null;
+            if (type === 'discoveries') targetCard = document.getElementById(`discovery-card-${id}`);
+            if (type === 'tasks') targetCard = document.getElementById(`task-card-${id}`);
+            if (type === 'stays') targetCard = document.getElementById(`stay-card-${id}`);
+            if (type === 'voyages') targetCard = document.getElementById(`voyage-card-${id}`);
+            
+            if (targetCard) {
+                const overlay = document.createElement('div');
+                overlay.className = 'confirm-overlay shadow-float';
+                overlay.onclick = (e) => e.stopPropagation();
+                overlay.innerHTML = `
+                    <p class="font-serif text-2xl italic mb-6 text-ink">Discard this entry?</p>
+                    <div class="flex gap-4 w-full px-4 text-charcoal text-ink">
+                        <button onclick="this.parentElement.parentElement.remove()" class="btn-secondary flex-1">Keep</button>
+                        <button onclick="confirmDeletion('${type}', '${id}')" class="btn-primary flex-1 text-white">Yes</button>
+                    </div>
+                `;
+                targetCard.appendChild(overlay);
+            } else {
+                if (confirm("Discard this record?")) confirmDeletion(type, id);
+            }
+        }
+
         // --- AUTH & DATA SYNC ---
         async function initAuthAndData() {
-            try {
-                await signInAnonymously(auth).then(() => {
-                     console.log("Success! You can now save data to the trip diary.");
-                }).catch((error) => {
-                     console.error("Auth failed:", error.code, error.message);
-                });
-
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        currentUserId = user.uid;
-                        setupSync();
-                    }
-                });
-            } catch (error) {
-                console.error("Auth failed:", error);
-            }
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    currentUserId = user.uid;
+                    console.log("Authenticated as:", currentUserId);
+                    setupSync();
+                } else {
+                    signInAnonymously(auth)
+                        .then(() => {
+                            console.log("Success! Anonymous sign-in complete.");
+                        })
+                        .catch((error) => {
+                            console.error("Auth failed. Did you enable Anonymous Auth in the console?", error.code);
+                        });
+                }
+            });
         }
 
         function setupSync() {
@@ -751,35 +794,7 @@
             });
         }
 
-        // --- FINANCE & STATS ---
-        let fundChart = null;
-        function renderFund() {
-            const body = document.getElementById('ledger-body'); if(!body) return; body.innerHTML = '';
-            let cody = 0, ayano = 0;
-            expenses.sort((a,b) => (b.created || 0) - (a.created || 0)).forEach((ex) => {
-                if(ex.payer === 'Cody') cody += Number(ex.amount); else ayano += Number(ex.amount);
-                const row = document.createElement('tr');
-                row.className = "border-b-4 border-dotted border-paper hover:bg-alert-wash transition-colors text-ink text-charcoal text-ink";
-                row.innerHTML = `<td class="p-8 font-serif italic text-3xl font-bold text-ink text-charcoal">"${ex.item}"</td><td class="p-8 text-center text-charcoal text-ink"><span class="px-6 py-2 rounded-full text-xs font-bold uppercase ${ex.payer === 'Cody' ? 'bg-terracotta text-white' : 'bg-meadow text-white'}">${ex.payer}</span></td><td class="p-8 text-right font-bold text-3xl text-charcoal text-ink">¥${Number(ex.amount).toLocaleString()}</td><td class="p-8 text-center text-ink"><button onclick="requestDeletion('expenses', '${ex.id}')" class="text-charcoal opacity-20 hover:opacity-100 hover:text-terracotta font-bold text-5xl transition text-ink">×</button></td>`;
-                body.appendChild(row);
-            });
-            const spent = cody + ayano;
-            if(document.getElementById('sum-cody')) document.getElementById('sum-cody').innerText = `¥${cody.toLocaleString()}`;
-            if(document.getElementById('sum-ayano')) document.getElementById('sum-ayano').innerText = `¥${ayano.toLocaleString()}`;
-            if(document.getElementById('chart-inner-val')) document.getElementById('chart-inner-val').innerText = `¥${Math.round((BUDGET_CAP - spent)/1000)}k`;
-            
-            updatePie(cody, ayano); updateStats();
-        }
-        function updatePie(c, a) { const cc = document.getElementById('fundChart'); if(!cc) return; const ctx = cc.getContext('2d'); if(fundChart) fundChart.destroy(); fundChart = new Chart(ctx, { type: 'doughnut', data: { labels: ['Cody Spent', 'Ayano Spent'], datasets: [{ data: (c+a > 0) ? [c, a] : [1, 1], backgroundColor: ['#C06C54', '#8DA47E'], borderWidth: 0, hoverOffset: 25 }] }, options: { maintainAspectRatio: false, cutout: '82%', plugins: { legend: { display: false } } } }); }
-
-        function updateStats() {
-            const done = tasks.filter(t => t.status === 'done').length;
-            const pct = document.getElementById('dash-task-pct'); if(pct) pct.innerText = (tasks.length > 0 ? Math.round((done / tasks.length) * 100) : 0) + '%';
-            const total = expenses.reduce((s, c) => s + Number(c.amount), 0);
-            const rm = document.getElementById('dash-remain'); if(rm) rm.innerText = `¥${(BUDGET_CAP - total).toLocaleString()}`;
-        }
-
-        // --- ATTACH TO WINDOW ---
+        // --- GLOBAL EXPOSURE (CRITICAL) ---
         window.switchTab = switchTab;
         window.toggleForm = toggleForm;
         window.filterCity = filterCity;
@@ -795,13 +810,13 @@
         window.moveTask = moveTask;
         window.handleSearch = handleSearch;
 
+        // --- STARTUP ---
         window.onscroll = () => { const b = document.getElementById('back-top'); if(b) b.style.display = (window.pageYOffset > 500) ? 'flex' : 'none'; };
         
         window.onload = () => { 
             initAuthAndData(); 
             updateCountdown(); 
             setInterval(updateCountdown, 86400000); 
-            // Initial render
             switchTab('dashboard');
         };
     </script>
