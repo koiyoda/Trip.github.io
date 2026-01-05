@@ -204,7 +204,6 @@
                 </div>
             </div>
 
-            <!-- RULE OF THREE -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20 text-ink">
                 <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-ink bg-white">
                     <span class="text-[11px] uppercase font-bold text-ink block mb-4 tracking-widest text-charcoal text-center">Shared Chest</span>
@@ -216,7 +215,7 @@
                     <span class="text-5xl font-serif font-bold italic text-ink" id="dash-task-pct">0%</span>
                     <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80 text-center text-ink">Logistics Finalized</p>
                 </div>
-                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-terracotta bg-alert-wash">
+                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-terracotta bg-alert-wash text-ink">
                     <span class="text-[11px] uppercase font-bold text-terracotta block mb-4 tracking-widest font-bold text-center text-center text-ink">National Alert</span>
                     <span class="text-5xl mb-2 block text-center">🇭🇺</span>
                     <h4 class="text-sm font-bold text-terracotta uppercase text-center text-ink">March 15th: Closures</h4>
@@ -238,7 +237,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     <div class="bg-paper p-8 rounded-xl border border-sand-light shadow-inner min-h-[150px]">
                         <h4 class="text-[10px] uppercase font-bold text-gray-400 mb-8 tracking-widest border-b-2 border-ink pb-2 text-center">Pending</h4>
-                        <div id="col-todo" class="space-y-4 text-charcoal text-ink"></div>
+                        <div id="col-todo" class="space-y-4 text-charcoal text-ink text-ink"></div>
                     </div>
                     <div class="bg-alert-wash p-8 rounded-xl border border-terracotta/10 shadow-inner min-h-[150px]">
                         <h4 class="text-[10px] uppercase font-bold text-terracotta mb-8 tracking-widest border-b-2 border-terracotta pb-2 text-center">In Progress</h4>
@@ -246,7 +245,7 @@
                     </div>
                     <div class="bg-meadow/5 p-8 rounded-xl border border-meadow/10 shadow-inner min-h-[150px]">
                         <h4 class="text-[10px] uppercase font-bold text-meadow mb-8 tracking-widest border-b-2 border-meadow pb-2 text-center text-ink">Done</h4>
-                        <div id="col-done" class="space-y-4 text-charcoal text-ink"></div>
+                        <div id="col-done" class="space-y-4 text-charcoal text-ink text-ink"></div>
                     </div>
                 </div>
             </div>
@@ -275,7 +274,7 @@
                 </div>
                 <div class="flex justify-end gap-6 text-charcoal"><button onclick="toggleForm('stay-form')" class="text-sm font-bold uppercase tracking-widest hover:underline">Cancel</button><button id="add-stay-btn" onclick="addStay()" class="btn-primary px-12 text-white">Register Stay</button></div>
             </div>
-            <div id="stay-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10 text-ink"></div>
+            <div id="stay-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10 text-ink text-charcoal"></div>
         </section>
 
         <!-- VOYAGE TRACKER -->
@@ -283,7 +282,7 @@
             <div class="flex justify-between items-center mb-12 text-ink">
                 <div>
                     <h2 class="font-serif text-7xl italic text-ink">Voyage Log</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink">Transit Manifest</h5>
+                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink text-ink">Transit Manifest</h5>
                 </div>
                 <button onclick="toggleForm('trans-form')" class="btn-primary px-10 text-white">New Leg +</button>
             </div>
@@ -295,8 +294,8 @@
                     <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">To</label><input type="text" id="in-tr-to"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 items-end text-ink text-charcoal">
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Departure</label><input type="time" id="in-tr-start"></div>
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block">Arrival</label><input type="time" id="in-tr-end"></div>
+                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block text-ink text-charcoal">Departure</label><input type="time" id="in-tr-start"></div>
+                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold text-charcoal uppercase mb-2 block text-ink text-charcoal">Arrival</label><input type="time" id="in-tr-end"></div>
                     <button id="add-voyage-btn" onclick="addVoyage()" class="btn-primary w-full text-white">Record Leg</button>
                 </div>
             </div>
@@ -333,7 +332,7 @@
         <section id="vienna-view" class="tab-content text-ink">
             <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 text-ink text-charcoal">
                 <div>
-                    <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 text-ink text-ink">Vienna</h2>
+                    <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 text-ink">Vienna</h2>
                     <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic text-ink text-charcoal">Imperial Hub</h5>
                 </div>
                 <div class="flex flex-wrap gap-4 items-center text-ink text-charcoal">
@@ -408,7 +407,7 @@
     <div onclick="window.scrollTo(0,0)" id="back-top" class="back-to-top shadow-lg text-ink">↑</div>
 
     <footer class="bg-ink py-20 mt-32 text-parchment/60 font-semibold text-ink">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left text-parchment">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left text-parchment text-paper">
             <div>
                 <h5 class="font-serif text-3xl text-parchment italic mb-6">Voyage Rules</h5>
                 <ul class="space-y-4 text-sm font-bold text-parchment/80">
@@ -462,10 +461,11 @@
         const BUDGET_CAP = 460000;
         const DEPARTURE = new Date(2026, 2, 6, 0, 0, 0).getTime();
 
-        // Seeding full list of sights and food places
+        // FULL SEED DATA LIST
         let tasks = [
             { text: 'Download WienMobil and Bolt', status: 'done', id: 'seed-task-1' },
-            { text: 'Finalize Railjet Seat Reservations', status: 'todo', id: 'seed-task-2' }
+            { text: 'Finalize Railjet Seat Reservations', status: 'todo', id: 'seed-task-2' },
+            { text: 'Pack modular layers for 3-12°C weather', status: 'todo', id: 'seed-task-3' }
         ];
         let stays = [
             { id: 'seed-stay-1', city: 'Budapest', name: 'Danube Riverside Apartment', inD: '2026-03-06', inT: '15:00', outD: '2026-03-12', outT: '11:00' }
@@ -474,24 +474,39 @@
             { id: 'seed-voyage-1', kind: '✈️ Plane', date: '2026-03-06', from: 'Osaka (KIX)', to: 'Budapest (BUD)', start: '10:00', end: '17:40' }
         ];
         let discoveries = [
+            // BUDAPEST SIGHTS
             { id: 'seed-d-1', city: 'Budapest', type: 'Sights', name: "Fisherman's Bastion", note: "Arrive at sunrise for the best light." },
             { id: 'seed-d-2', city: 'Budapest', type: 'Sights', name: "Gül Baba's Tomb", note: "Northernmost Islamic pilgrimage site." },
             { id: 'seed-d-3', city: 'Budapest', type: 'Sights', name: "Rudas Baths", note: "Turkish octagonal pool from 1566." },
             { id: 'seed-d-4', city: 'Budapest', type: 'Sights', name: "Hungarian State Opera", note: "Original 19th-century interior gold leaf." },
             { id: 'seed-d-5', city: 'Budapest', type: 'Sights', name: "Metropolitan Library", note: "Reading rooms in an old aristocratic palace." },
+            { id: 'seed-d-17', city: 'Budapest', type: 'Sights', name: "Várkert Bazár", note: "Renaissance gateway with night elevators." },
+            { id: 'seed-d-18', city: 'Budapest', type: 'Sights', name: "Memento Park", note: "Graveyard of massive communist propaganda statues." },
+            { id: 'seed-d-19', city: 'Budapest', type: 'Sights', name: "Vajdahunyad Castle", note: "Architectural collage in the middle of City Park." },
+            { id: 'seed-d-20', city: 'Budapest', type: 'Sights', name: "Kerepesi Cemetery", note: "The hauntingly beautiful National Pantheon." },
+            { id: 'seed-d-21', city: 'Budapest', type: 'Sights', name: "Pinball Museum", note: "130+ interactive machines in a quiet basement." },
+            // BUDAPEST FOOD
             { id: 'seed-d-6', city: 'Budapest', type: 'Food', name: "Retró Lángos", note: "Best fried dough centrally (~2500 HUF)." },
             { id: 'seed-d-7', city: 'Budapest', type: 'Food', name: "Frici Papa", note: "Traditional Hungarian at grandmother prices." },
             { id: 'seed-d-8', city: 'Budapest', type: 'Food', name: "Menza", note: "Socialist-chic vibes with modern duck leg." },
-            { id: 'seed-d-9', city: 'Budapest', type: 'Food', name: "Molnár’s Kürtőskalács", note: "Freshly made chimney cakes on Váci utca." },
+            { id: 'seed-d-9', city: 'Budapest', type: 'Food', name: "Molnár’s Kürtőskalács", note: "Artisanal chimney cakes made on-site." },
+            { id: 'seed-d-22', city: 'Budapest', type: 'Food', name: "Bors GasztroBár", note: "The wild kings of soups and grilled baguettes." },
+            { id: 'seed-d-23', city: 'Budapest', type: 'Food', name: "Pizza Manufaktura", note: "Excellent Roman-style thin crust pizza." },
+            { id: 'seed-d-24', city: 'Budapest', type: 'Food', name: "Igen Italy", note: "First certified Neapolitan pizzeria in Hungary." },
+            { id: 'seed-d-25', city: 'Budapest', type: 'Food', name: "Rosenstein", note: "The finest blend of Hungarian and Jewish cuisine." },
+            { id: 'seed-d-26', city: 'Budapest', type: 'Food', name: "Gelarto Rosa", note: "Famous gelato served in a delicate rose shape." },
+            // VIENNA
             { id: 'seed-d-10', city: 'Vienna', type: 'Food', name: "Schnitzelwirt", note: "⚠️ CASH ONLY. Massive portions." },
             { id: 'seed-d-11', city: 'Vienna', type: 'Food', name: "Gasthaus Kopp", note: "True local gem, zero tourists." },
             { id: 'seed-d-12', city: 'Vienna', type: 'Food', name: "Café Central", note: "Iconic literature cafe. Freud's old haunt." },
             { id: 'seed-d-13', city: 'Vienna', type: 'Food', name: "Naschmarkt", note: "Outdoor market for falafel and vinegar." },
             { id: 'seed-d-14', city: 'Vienna', type: 'Sights', name: "Prater", note: "The giant ferris wheel and nostalgic park vibes." },
             { id: 'seed-d-15', city: 'Vienna', type: 'Sights', name: "Hundertwasser House", note: "Colorful, wavy architecture that defies rules." },
-            { id: 'seed-d-16', city: 'Vienna', type: 'Sights', name: "Albertina Terrace", note: "Overlooks the Opera House at sunset." }
+            { id: 'seed-d-16', city: 'Vienna', type: 'Sights', name: "Albertina Terrace", note: "Overlooks the Opera House at sunset." },
+            { id: 'seed-d-27', city: 'Vienna', type: 'Sights', name: "St. Stephen's Cathedral", note: "The Gothic heart of the Imperial city." },
+            { id: 'seed-d-28', city: 'Vienna', type: 'Food', name: "Zanoni & Zanoni", note: "A local institution for gelato and cakes." }
         ];
-        let expenses = [{ id: 'seed-ex-1', item: 'Flight Deposits', payer: 'Cody', amount: 165000 }];
+        let expenses = [{ id: 'seed-ex-1', item: 'Initial Flight Deposits', payer: 'Cody', amount: 165000 }];
 
         // --- UTILS ---
 
@@ -573,7 +588,7 @@
                 el.innerHTML = `<button onclick="requestDeletion('stays', '${s.id}')" class="absolute top-4 right-4 text-terracotta text-3xl font-bold opacity-20 hover:opacity-100 transition">×</button>
                     <div class="flex justify-between border-b pb-3 mb-6"><span class="text-[10px] font-bold text-meadow uppercase tracking-widest text-ink">${s.city} Lodge</span></div>
                     <h4 class="font-serif text-4xl font-bold mb-8 italic text-ink">"${s.name || 'Unnamed Residency'}"</h4>
-                    <div class="grid grid-cols-2 gap-8 font-bold border-l-4 border-paper pl-8 text-charcoal">
+                    <div class="grid grid-cols-2 gap-8 font-bold border-l-4 border-paper pl-8 text-charcoal text-ink">
                         <div><p class="text-[9px] text-gray-400 uppercase tracking-widest leading-none mb-1 text-ink">Arrival</p><p class="text-xl text-ink">${s.inD || 'TBD'}</p><p class="text-xs italic opacity-60 text-ink">at ${s.inT || '--'}</p></div>
                         <div><p class="text-[9px] text-gray-400 uppercase tracking-widest leading-none mb-1 text-ink">Departure</p><p class="text-xl text-ink">${s.outD || 'TBD'}</p><p class="text-xs italic opacity-60 text-ink">at ${s.outT || '--'}</p></div>
                     </div>`;
@@ -588,7 +603,7 @@
                 el.id = `voyage-card-${v.id}`;
                 el.className = "ticket-stub card-layer p-10 flex flex-col justify-between shadow-soft bg-white rounded-lg border border-sand-light relative sketchbook-card";
                 el.innerHTML = `<button onclick="requestDeletion('voyages', '${v.id}')" class="absolute top-4 right-4 text-charcoal font-bold text-3xl opacity-20 hover:opacity-100 transition text-ink">×</button>
-                    <div class="flex justify-between items-center mb-8 text-ink text-charcoal"><span class="text-xs font-bold text-ink/40 uppercase tracking-widest text-charcoal text-ink">${v.kind}</span></div>
+                    <div class="flex justify-between items-center mb-8 text-ink text-charcoal text-ink"><span class="text-xs font-bold text-ink/40 uppercase tracking-widest text-charcoal text-ink">${v.kind}</span></div>
                     <p class="font-serif italic text-3xl text-terracotta font-bold mb-4">${v.date || 'TBD'}</p>
                     <div class="space-y-4 border-l-4 border-paper pl-8 mb-8 font-serif italic text-3xl text-charcoal"><p class="text-gray-400 text-[11px] uppercase font-bold tracking-[0.4em] mb-1 text-ink text-ink">Route</p><p class="leading-tight text-ink font-bold text-ink">${v.from} ➔ ${v.to}</p></div>
                     <div class="pt-6 border-t-2 border-dotted border-paper flex justify-between font-bold text-xs uppercase text-charcoal text-ink"><span>Dep: ${v.start || '--'}</span><span>Arr: ${v.end || '--'}</span></div>`;
@@ -646,19 +661,25 @@
                 const q = collection(db, 'artifacts', appId, 'public', 'data', colName);
                 onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
                     const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    
+                    // Merging Logic: Only replace seed data if cloud data exists
                     if (!snapshot.empty || snapshot.metadata.fromCache) {
-                        if (colName === 'tasks') { tasks = data.length ? data : tasks; renderTasks(); }
-                        if (colName === 'stays') { stays = data.length ? data : stays; renderStays(); }
-                        if (colName === 'voyages') { voyages = data.length ? data : voyages; renderVoyages(); }
-                        if (colName === 'discoveries') { discoveries = data.length ? data : discoveries; renderGrids('Budapest'); renderGrids('Vienna'); }
-                        if (colName === 'expenses') { expenses = data.length ? data : expenses; renderFund(); }
+                        if (colName === 'tasks' && data.length) { tasks = data; renderTasks(); }
+                        if (colName === 'stays' && data.length) { stays = data; renderStays(); }
+                        if (colName === 'voyages' && data.length) { voyages = data; renderVoyages(); }
+                        if (colName === 'discoveries' && data.length) { discoveries = data; renderGrids('Budapest'); renderGrids('Vienna'); }
+                        if (colName === 'expenses' && data.length) { expenses = data; renderFund(); }
+                    }
+
+                    if (snapshot.metadata.fromCache) {
+                        console.log(`Loaded ${colName} from local storage instantly.`);
                     }
                 }, (error) => console.error(`Sync error for ${colName}:`, error));
             });
         }
 
         async function initAuthAndData() {
-            setupSync(); // Immediate pull from cache
+            setupSync(); // Instant read-only sync from cache
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     currentUserId = user.uid;
@@ -753,22 +774,37 @@
         function openDetail(id) {
             const item = discoveries.find(d => d.id == id); if(!item) return;
             const dossier = {
-                "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains.", tips: "Arrive at 06:00 for sunrise shots of Parliament. Upper turrets free before 09:00.", addr: "Castle Hill, 1014 Budapest", hours: "Terraces: 24/7" },
-                "Gül Baba's Tomb": { history: "Northernmost Islamic pilgrimage site. Bektashi warrior-poet died 1541.", tips: "Peaceful zone. Stunning terraced rose garden overlooking the Danube.", addr: "Mecset u. 14, 1023 Budapest", hours: "10:00-18:00 (Closed Mon)" },
-                "Rudas Baths": { history: "Authentic 16th-century steam baths. Octagonal pool beneath 10m stone dome.", tips: "Unique rooftop panoramic hot tub. Check gender schedule: M (M/W/Th/F AM), W (Tue), Co-ed (Sat/Sun).", addr: "Döbrentei tér 9, 1013 Budapest", hours: "06:00-20:00" },
-                "Hungarian State Opera": { history: "Designed by Miklós Ybl (1884). Pristine 19th-century interior with original gold leaf.", tips: "Tours at 14:00 and 15:00. Dress code is relaxed for tours but smart for performances.", addr: "Andrássy út 22, 1061 Budapest", hours: "Varies" },
-                "Metropolitan Library": { history: "A secret library inside Wenckheim Palace. Neo-baroque reading rooms.", tips: "Purchase a reader's pass for a small fee (~500 HUF) to access the historic rooms.", addr: "Szabó Ervin tér 1, 1088 Budapest", hours: "09:00-20:00 (Closed Sun)" },
-                "Retró Lángos": { history: "The definitive street food spot. Famous for garlic-infused dough.", tips: "Get the 'Classic' with sour cream, cheese, and garlic water. Best value centrally.", addr: "Bajcsy-Zsilinszky út 25, 1065 Budapest", hours: "11:00-22:00" },
-                "Frici Papa": { history: "Retro socialist-era canteen known for massive portions and cheap prices.", tips: "Expect a line during dinner. Cash is preferred though cards are accepted.", addr: "Király u. 55, 1077 Budapest", hours: "11:00-23:00" },
-                "Menza": { history: "Retro-chic styling based on 1970s canteens.", tips: "Order the duck leg with cabbage. Reservations recommended for dinner.", addr: "Liszt Ferenc tér 2, 1061 Budapest", hours: "11:00-23:00" },
-                "Molnár’s Kürtőskalács": { history: "Artisanal chimney cakes made on-site.", tips: "The cinnamon and walnut flavors are traditional favorites.", addr: "Váci u. 31, 1052 Budapest", hours: "09:00-21:00" },
-                "Schnitzelwirt": { history: "Legendary Vienna budget king. Shared tables and massive portions.", tips: "CASH ONLY. Portions are huge—consider sharing a schnitzel between two.", addr: "Neubaugasse 52, 1070 Wien", hours: "11:00-22:00 (Closed Sun/Mon)" },
-                "Gasthaus Kopp": { history: "A real 'Beisl' (local pub) away from the tourist path.", tips: "Zero English spoken here typically. Authentic experience. Try the Goulash.", addr: "Engerthstraße 104, 1200 Wien", hours: "11:00-23:00" },
-                "Café Central": { history: "Former meeting point for intellectual giants like Trotsky and Freud.", tips: "Go before 10 AM to avoid the massive afternoon queue.", addr: "Herrengasse 14, 1010 Wien", hours: "07:30-22:00" },
-                "Naschmarkt": { history: "Vienna's most famous market dating back to the 16th century.", tips: "Saturday flea market starts very early. Great for people watching.", addr: "Linke Wienzeile, 1060 Wien", hours: "06:00-21:00 (Closed Sun)" },
-                "Prater": { history: "Iconic amusement park featuring the 1897 Riesenrad Ferris Wheel.", tips: "Entering the park is free; you pay per ride. Very atmospheric at dusk.", addr: "1020 Wien", hours: "Park 24/7 (Rides vary)" },
-                "Hundertwasser House": { history: "Artistic apartment complex designed to be in harmony with nature.", tips: "Respect the residents' privacy; the interior is not open to tours, only the facade.", addr: "Kegelgasse 36-38, 1030 Wien", hours: "Visible 24/7" },
-                "Albertina Terrace": { history: "Elevated terrace overlooking the State Opera house.", tips: "Perfect spot for a sunset photo. Accessible for free via the escalators/elevator.", addr: "Albertinapl. 1, 1010 Wien", hours: "Visible 24/7" }
+                // BUDAPEST SIGHTS
+                "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains. Responsible for defending castle walls.", tips: "Arrive at 06:00 for sunrise shots of Parliament. Upper turrets free before 09:00. Free all day on March 15th.", addr: "Castle Hill, 1014 Budapest", hours: "Terraces: 24/7" },
+                "Gül Baba's Tomb": { history: "Northernmost Islamic pilgrimage site. Bektashi warrior-poet died 1541. Legend says Sultan Suleiman carried his coffin.", tips: "Peaceful zone away from crowds. Stunning terraced rose garden overlooking the Danube.", addr: "Mecset u. 14, 1023 Budapest", hours: "10:00-18:00 (Closed Mon)" },
+                "Rudas Baths": { history: "Authentic 16th-century steam baths. Octagonal pool beneath 10m stone dome with star skylights.", tips: "Unique rooftop panoramic hot tub. Check gender schedule: M (M/W/Th/F AM), W (Tue), Co-ed (Sat/Sun).", addr: "Döbrentei tér 9, 1013 Budapest", hours: "06:00-20:00" },
+                "Hungarian State Opera": { history: "Designed by Miklós Ybl (1884). Pristine 19th-century interior with original gold leaf. Superior acoustics to Vienna.", tips: "Luxury box seats here cost the same as standing room in Vienna. Smart casual is appropriate.", addr: "Andrássy út 22, 1061 Budapest", hours: "Tours 14:00/15:00" },
+                "Metropolitan Library": { history: "Aristocratic Wenckheim Palace (1889) hidden inside a modern library. Neo-baroque jewel.", tips: "Purchase a 2000 HUF tourist pass to access the historic staterooms on the 4th floor.", addr: "Szabó Ervin tér 1, 1088 Budapest", hours: "09:00-20:00 (Closed Sun)" },
+                "Várkert Bazár": { history: "Designed by Miklós Ybl. Recently restored Neo-Renaissance complex at the foot of Buda Castle.", tips: "Use the hidden escalators and elevators within the walls to ascend to the castle until midnight.", addr: "Ybl Miklós tér 2-6, 1013 Budapest", hours: "06:00-00:00" },
+                "Memento Park": { history: "A graveyard of propaganda. Houses statues of Lenin and Marx removed from public squares after 1989.", tips: "Stark and windy—dress warmly. Take Metro 4 to Kelenföld, then transfer to Bus 101B or 150.", addr: "Balatoni út, 1223 Budapest", hours: "10:00-16:00 (March)" },
+                "Vajdahunyad Castle": { history: "Built for 1896 Millennium Exhibition. A physical collage of Romanesque, Gothic, and Baroque styles.", tips: "Touch the pen of the Anonymous statue for literary inspiration. Great for a winter walk.", addr: "City Park, 1146 Budapest", hours: "Courtyard: 24/7" },
+                "Kerepesi Cemetery": { history: "The 'Hungarian Père Lachaise'. Rest of Hungary's most significant historical figures and revolutionaries.", tips: " Lack of foliage in March creates a somber, beautiful atmosphere. Visit the mausoleum of Lajos Kossuth.", addr: "Fiumei út 16-18, 1086 Budapest", hours: "07:00-17:00 (March)" },
+                "Pinball Museum": { history: "Europe's largest interactive pinball exhibition. 130+ machines from 19th century to modern day.", tips: "Perfect 'bunker' for a rainy March afternoon. Entrance fee covers unlimited play on all machines.", addr: "Radnóti Miklós u. 18, 1137 Budapest", hours: "16:00-00:00 (Wed-Sun)" },
+                // BUDAPEST FOOD
+                "Retró Lángos": { history: "The definitive street food spot. Elevated deep-fried flatbread yeast dough.", tips: "Get the 'Classic' with sour cream, cheese, and garlic water. Best centrally.", addr: "Bajcsy-Zsilinszky út 25, 1065 Budapest", hours: "11:00-22:00" },
+                "Frici Papa": { history: "A 'Kifőzde' (canteen) institution. Serving massive portions with heavy paprika like grandma makes.", tips: "Extremely affordable (~3500 HUF). Cash preferred. Expect a queue during dinner.", addr: "Király u. 55, 1077 Budapest", hours: "11:00-23:00 (Closed Sun)" },
+                "Menza": { history: "Retro-chic 1970s socialist-themed interior. Refines traditional home-style cooking.", tips: "Order the duck leg with red cabbage. Highly recommended to reserve a table in advance.", addr: "Liszt Ferenc tér 2, 1061 Budapest", hours: "11:00-23:00" },
+                "Bors GasztroBár": { history: "High-end chefs apply fine-dining techniques to wild soups and grilled baguettes.", tips: "No seating; standing only. Loud music and theatrical staff. Jewish Quarter staple.", addr: "Kazinczy u. 10, 1075 Budapest", hours: "11:30-21:00" },
+                "Pizza Manufaktura": { history: "Roman-style thin, crispy crust pizza. Unpretentious and popular with local students.", tips: "Affordable (~3000 HUF). Note limited weekend hours.", addr: "Erkel u. 4, 1093 Budapest", hours: "11:00-21:00" },
+                "Igen Italy": { history: "First certified Neapolitan pizzeria in Hungary. Soft, puffy, and slightly charred crust.", tips: "Buda side location. Authentic ingredients imported from Italy.", addr: "Margit körút 60, 1027 Budapest", hours: "12:00-22:00" },
+                "Rosenstein": { history: "Considered the finest traditional restaurant in the city. Blend of Hungarian and Ashkenazi Jewish flavors.", tips: "Reservations are vital. Try the flódni cake for dessert. Family-run oasis.", addr: "Mosonyi u. 3, 1087 Budapest", hours: "12:00-23:00 (Closed Sun)" },
+                "Gelarto Rosa": { history: "Artisanal gelato served in a delicate rose shape using a specialized spatula technique.", tips: "Next to St. Stephen's Basilica. Visually stunning and high-quality natural ingredients.", addr: "Szent István tér 3, 1051 Budapest", hours: "10:00-21:00" },
+                "Molnár’s Kürtőskalács": { history: "The only place to eat chimney cakes! Helix sweet yeast dough wrapped on wooden cylinders.", tips: "Watch them being baked on-site. Cinnamon and walnut are the traditional favorites.", addr: "Váci u. 31, 1052 Budapest", hours: "09:00-20:00" },
+                // VIENNA
+                "Schnitzelwirt": { history: "Legendary budget king. Rough charm, shared long tables, and massive portions.", tips: "CASH ONLY. Portions are huge—consider sharing. Zero English usually spoken.", addr: "Neubaugasse 52, 1070 Wien", hours: "11:00-22:00 (Closed Sun/Mon)" },
+                "Gasthaus Kopp": { history: "A real 'Beisl' (local tavern) away from tourist paths in the 20th district.", tips: "Authentic experience. Try the Goulash. Much cheaper than city center prices.", addr: "Engerthstraße 104, 1200 Wien", hours: "11:00-23:00 (Closed Mon/Tue)" },
+                "Café Central": { history: "Iconic literature cafe where Trotsky and Freud used to linger. Grand Venetian architecture.", tips: "Go before 10 AM to avoid the afternoon queue. Get the patisserie selection.", addr: "Herrengasse 14, 1010 Wien", hours: "07:30-22:00" },
+                "Naschmarkt": { history: "Vienna's most famous market dating back to the 16th century. Falafel and spices.", tips: "Saturday flea market starts at dawn. Great for people watching and casual lunch.", addr: "Linke Wienzeile, 1060 Wien", hours: "06:00-21:00 (Closed Sun)" },
+                "Prater": { history: "Amusement park featuring the 1897 Riesenrad Ferris Wheel. Pure Ghibli nostalgia.", tips: "Entering the park is free. Ride the wheel at dusk for Imperial views.", addr: "1020 Wien", hours: "Park 24/7 (Rides vary)" },
+                "Hundertwasser House": { history: "Forest-covered wavy architecture designed to be in harmony with nature.", tips: "Respect privacy; the interior is residential. Visit the 'Village' opposite for souvenirs.", addr: "Kegelgasse 36-38, 1030 Wien", hours: "Facade visible 24/7" },
+                "Albertina Terrace": { history: "Elevated terrace overlooking the State Opera house. Regal Imperial vantage point.", tips: "Perfect spot for a sunset photo. Accessible for free via the escalators.", addr: "Albertinapl. 1, 1010 Wien", hours: "Visible 24/7" },
+                "St. Stephen's Cathedral": { history: "The Gothic heart of the city. Iconic tile roof featuring the Imperial eagle.", tips: "Access to the main nave is free. Towers and catacombs are ticketed.", addr: "Stephansplatz, 1010 Wien", hours: "06:00-22:00" },
+                "Zanoni & Zanoni": { history: "A Vienna institution for gelato and cakes. Fast and centrally located.", tips: "Great for a quick break while exploring the Ringstrasse.", addr: "Lugeck 7, 1010 Wien", hours: "07:00-00:00" }
             };
             const info = dossier[item.name] || { history: "Personal discovery log...", tips: "Explore and document!", addr: "City Center", hours: "Varies" };
             document.getElementById('modal-body').innerHTML = `
