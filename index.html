@@ -33,6 +33,7 @@
                         'soft': '0 4px 25px -4px rgba(0, 0, 0, 0.05)',
                         'float': '0 15px 35px -5px rgba(67, 52, 34, 0.12)',
                         'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.03)',
+                        'focused': '0 30px 60px -12px rgba(67, 52, 34, 0.25)',
                     }
                 }
             }
@@ -63,20 +64,11 @@
         .tab-content.active { display: block; animation: slideIn 0.4s ease-out; }
         @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Global Image Styling */
-        .journal-img {
-            filter: sepia(15%) brightness(95%) contrast(90%);
-            border: 3px solid #FDFBF7;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            object-fit: cover;
-        }
-
-        /* Carousel & Perspective Styling */
+        /* Optimized Carousel System */
         .carousel-container {
             perspective: 1200px;
             overflow: hidden;
-            padding: 4rem 0;
+            padding: 2rem 0;
             position: relative;
         }
         .carousel-track {
@@ -84,8 +76,9 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding: 0 35vw; 
-            gap: 2rem;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 10vw; /* Mobile Peak */
+            gap: 1.5rem;
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -95,57 +88,62 @@
             background: #FDFBF7;
             border: 1px solid #E5DED0;
             border-radius: 12px;
-            flex: 0 0 340px; 
+            flex: 0 0 80vw; /* Mobile Responsive Width */
             height: 480px; 
             scroll-snap-align: center;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            transform-style: preserve-3d;
-            opacity: 0.7;
-            transform: scale(0.9) rotateY(10deg);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, box-shadow 0.5s ease;
+            will-change: transform;
+            transform: translate3d(0,0,0) scale(1) rotateY(10deg);
+            opacity: 0.6;
             cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
         .sketchbook-card.is-focused {
-            flex: 0 0 400px;
-            height: 550px;
-            transform: scale(1.1) rotateY(0deg);
-            z-index: 10;
+            transform: translate3d(0,0,0) scale(1.05) rotateY(0deg);
+            z-index: 20;
             opacity: 1;
-            box-shadow: 0 30px 60px -12px rgba(67, 52, 34, 0.2);
+            box-shadow: 0 30px 60px -12px rgba(67, 52, 34, 0.25);
         }
 
+        @media (min-width: 768px) {
+            .carousel-track { padding: 0 30vw; gap: 3rem; }
+            .sketchbook-card { flex: 0 0 340px; height: 480px; }
+            .sketchbook-card.is-focused { flex: 0 0 400px; height: 550px; transform: scale(1.1) rotateY(0deg); }
+        }
+
+        /* Content Reveal */
         .card-reveal {
             opacity: 0;
             transition: opacity 0.4s ease;
+            pointer-events: none;
         }
         .is-focused .card-reveal {
             opacity: 1;
+            pointer-events: auto;
+        }
+
+        .journal-img {
+            filter: sepia(15%) brightness(95%) contrast(90%);
+            border: 3px solid #FDFBF7;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            object-fit: cover;
+            width: 100%;
+            height: 250px;
         }
 
         .journal-progress-container {
-            width: 200px;
-            height: 2px;
-            background: #E8E4D8;
-            margin: 2rem auto 0;
-            position: relative;
-            overflow: hidden;
+            width: 200px; height: 2px; background: #E8E4D8; margin: 2rem auto 0;
+            position: relative; overflow: hidden;
         }
-        .journal-progress-bar {
-            height: 100%;
-            background: #1A1A1A;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
+        .journal-progress-bar { height: 100%; background: #1A1A1A; width: 0%; transition: width 0.3s ease; }
 
         .btn-primary { 
             background: #1A1A1A; color: #FDFBF7; font-weight: 700; text-transform: uppercase; 
             letter-spacing: 0.1em; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
         }
-        .btn-primary:hover { background: #C06C54; transform: translateY(-1px); }
         
         .filter-btn {
             background-color: #E8E4D8; color: #1A1A1A; padding: 0.5rem 1.5rem;
@@ -159,37 +157,29 @@
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(26, 26, 26, 0.85);
             backdrop-filter: blur(8px); z-index: 9999; display: none;
-            align-items: center; justify-content: center; padding: 1.5rem;
+            align-items: center; justify-content: center; padding: 1rem;
         }
         #detail-content {
             background: #FDFBF7; max-width: 800px; width: 100%; max-height: 90vh;
             overflow-y: auto; border-radius: 20px; border: 1px solid #E5DED0;
             position: relative; animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
         @keyframes modalPop { from { opacity: 0; transform: scale(0.92) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+        .success-toast {
+            position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
+            background: #1A1A1A; color: #FFFFFF !important; padding: 1rem 2.5rem;
+            border-radius: 99px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 2500; display: none; font-weight: 700; text-transform: uppercase;
+        }
 
         .confirm-overlay {
             position: absolute; inset: 0; background: rgba(253, 251, 247, 0.98);
             border-radius: 12px; display: flex; flex-direction: column;
             align-items: center; justify-content: center; z-index: 50; padding: 2rem;
             text-align: center; animation: fadeIn 0.25s ease-out;
-            backdrop-filter: blur(2px);
         }
         
-        .chart-center-text {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            text-align: center; pointer-events: none;
-        }
-        
-        .tape {
-            background: rgba(212, 175, 55, 0.25); width: 70px; height: 18px;
-            position: absolute; top: -10px; left: 50%;
-            transform: translateX(-50%) rotate(-1deg); z-index: 10;
-        }
-        .skeleton { animation: pulse 1.5s infinite ease-in-out; background: #EEE; border-radius: 8px; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-
         .hero-banner {
             width: 100%; max-width: 1200px; height: 300px;
             margin: 0 auto; position: relative;
@@ -224,7 +214,6 @@
         <button onclick="window.switchTab('fund')">Fund</button>
     </div>
 
-    <!-- NAVIGATION -->
     <header class="sticky-header">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -243,10 +232,6 @@
                 </nav>
 
                 <div class="flex items-center space-x-4">
-                    <div class="hidden lg:relative lg:block">
-                        <input type="text" id="global-search" oninput="handleSearch()" placeholder="Search..." class="w-48 border-none rounded-full py-2 pl-4 pr-10 text-sm bg-paper focus:w-64 transition-all duration-300">
-                        <span class="absolute right-3 top-2.5 opacity-40">🔍</span>
-                    </div>
                     <button onclick="window.toggleMobileMenu()" class="lg:hidden p-2 text-ink">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
                     </button>
@@ -255,7 +240,6 @@
         </div>
     </header>
 
-    <!-- DASHBOARD HERO -->
     <div id="dashboard-hero" class="mt-8 px-4 lg:px-8">
         <div class="hero-banner">
             <img src="https://images.unsplash.com/photo-1558239331-5f7218679f22?q=80&w=1200&h=300&auto=format&fit=crop" alt="Budapest Skyline">
@@ -263,133 +247,75 @@
         </div>
     </div>
 
-    <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 min-h-screen text-ink">
+    <main class="max-w-7xl mx-auto py-12 min-h-screen text-ink">
 
-        <!-- DASHBOARD VIEW -->
-        <section id="dashboard-view" class="tab-content active">
+        <!-- DASHBOARD -->
+        <section id="dashboard-view" class="tab-content active px-4 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="font-serif text-6xl lg:text-8xl italic mb-6 tracking-tight text-ink">The Grand Tour</h2>
-                <div class="inline-block sketchbook-card p-12 lg:p-16 bg-white shadow-soft relative border border-sand-light mx-auto" style="height:auto; transform:none; opacity:1; cursor:default;">
+                <div class="inline-block sketchbook-card p-12 lg:p-16 bg-white shadow-soft relative border border-sand-light mx-auto" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
                     <div class="tape"></div>
                     <p class="text-[10px] uppercase font-bold text-charcoal tracking-[0.5em] mb-4 text-center">March 6, 2026</p>
                     <div class="text-8xl lg:text-9xl font-serif font-bold text-terracotta italic leading-none text-center" id="countdown-timer">--</div>
-                    <p class="text-xl font-bold text-ink mt-6 italic opacity-70 decoration-sepia/20 text-charcoal text-center">Days until our departure</p>
+                    <p class="text-xl font-bold text-ink mt-6 italic opacity-70 decoration-sepia/20 text-charcoal text-center">Days until departure</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20 text-ink">
-                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-ink bg-white" style="height:auto; transform:none; opacity:1; cursor:default;">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-ink bg-white" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
                     <span class="text-[11px] uppercase font-bold text-ink block mb-4 tracking-widest text-charcoal">FUND</span>
                     <span class="text-5xl font-serif font-bold italic" id="dash-remain">¥460,000</span>
-                    <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80 text-center">Remaining Travel Fund</p>
+                    <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80">Remaining</p>
                 </div>
-                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-meadow bg-white" style="height:auto; transform:none; opacity:1; cursor:default;">
+                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-meadow bg-white" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
                     <span class="text-[11px] uppercase font-bold text-ink block mb-4 tracking-widest text-charcoal text-center">Prep Status</span>
                     <span class="text-5xl font-serif font-bold italic" id="dash-task-pct">0%</span>
-                    <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80 text-center">Logistics Finalized</p>
+                    <p class="text-xs font-bold text-charcoal mt-4 italic opacity-80">Completed</p>
                 </div>
-                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-terracotta bg-alert-wash" style="height:auto; transform:none; opacity:1; cursor:default;">
-                    <span class="text-[11px] uppercase font-bold text-terracotta block mb-4 tracking-widest font-bold text-center">National Alert</span>
-                    <span class="text-5xl mb-2 block text-center">🇭🇺</span>
-                    <h4 class="text-sm font-bold text-terracotta uppercase text-center">March 15th: Closures</h4>
-                    <p class="text-xs font-bold text-charcoal mt-2 px-4 text-center">Strict Budapest shop closures. Museums free but busy.</p>
+                <div class="sketchbook-card p-10 text-center shadow-soft border-t-8 border-t-terracotta bg-alert-wash" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
+                    <span class="text-[11px] uppercase font-bold text-terracotta block mb-4 tracking-widest font-bold">National Alert</span>
+                    <span class="text-5xl mb-2 block">🇭🇺</span>
+                    <p class="text-xs font-bold text-charcoal">March 15th: Shop closures in BP.</p>
                 </div>
             </div>
 
             <div class="mb-24">
                 <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
-                    <h3 class="font-serif text-5xl italic border-l-8 border-ink pl-8 text-ink">Adventure Prep</h3>
-                    
+                    <h3 class="font-serif text-5xl italic border-l-8 border-ink pl-8">Prep</h3>
                     <div class="w-full md:w-auto flex-grow max-w-lg">
-                        <div class="relative sketchbook-card p-2 bg-paper shadow-inner border-paper-dark" style="height:auto; transform:none; opacity:1; cursor:default;">
+                        <div class="relative sketchbook-card p-2 bg-paper shadow-inner border-paper-dark" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
                             <div class="flex items-center gap-2">
                                 <input type="text" id="task-input-el" placeholder="+ Add a new task..." 
-                                       class="flex-grow bg-transparent border-none text-charcoal font-serif italic text-xl px-4 py-2 focus:ring-0 placeholder:opacity-40">
+                                       class="flex-grow bg-transparent border-none text-charcoal font-serif italic text-xl px-4 py-2 focus:ring-0">
                                 <button onclick="addTask()" class="btn-primary px-6 py-2 rounded-lg text-[10px]">Record</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                    <div class="bg-paper p-8 rounded-xl border border-sand-light shadow-inner min-h-[150px]">
-                        <h4 class="text-[10px] uppercase font-bold text-charcoal mb-8 tracking-widest border-b-4 border-ink pb-2 text-center">Pending</h4>
-                        <div id="col-todo" class="space-y-4"></div>
-                    </div>
-                    <div class="bg-alert-wash p-8 rounded-xl border border-terracotta/10 shadow-inner min-h-[150px]">
-                        <h4 class="text-[10px] uppercase font-bold text-terracotta mb-8 tracking-widest border-b-4 border-terracotta pb-2 text-center text-ink">In Progress</h4>
-                        <div id="col-progress" class="space-y-4"></div>
-                    </div>
-                    <div class="bg-meadow/5 p-8 rounded-xl border border-meadow/10 shadow-inner min-h-[150px]">
-                        <h4 class="text-[10px] uppercase font-bold text-meadow mb-8 tracking-widest border-b-4 border-meadow pb-2 text-center text-ink">Done</h4>
-                        <div id="col-done" class="space-y-4 text-charcoal text-ink"></div>
-                    </div>
+                    <div class="bg-paper p-8 rounded-xl min-h-[150px]"><h4 class="text-[10px] uppercase font-bold mb-8 tracking-widest border-b-4 border-ink pb-2">Pending</h4><div id="col-todo" class="space-y-4"></div></div>
+                    <div class="bg-alert-wash p-8 rounded-xl min-h-[150px]"><h4 class="text-[10px] uppercase font-bold mb-8 tracking-widest border-b-4 border-terracotta pb-2">Working</h4><div id="col-progress" class="space-y-4"></div></div>
+                    <div class="bg-meadow/5 p-8 rounded-xl min-h-[150px]"><h4 class="text-[10px] uppercase font-bold mb-8 tracking-widest border-b-4 border-meadow pb-2">Done</h4><div id="col-done" class="space-y-4"></div></div>
                 </div>
             </div>
         </section>
 
         <!-- STAY VIEW -->
-        <section id="stay-view" class="tab-content text-ink">
-            <div class="flex justify-between items-center mb-16 px-4">
-                <div>
-                    <h2 class="font-serif text-7xl italic">Stay & Rest</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2">The Guest Register</h5>
-                </div>
-                <button onclick="toggleForm('stay-form')" class="btn-primary px-10 text-white">New Residency +</button>
-            </div>
-            
-            <div id="stay-form" class="hidden sketchbook-card p-12 mb-16 bg-white shadow-float mx-4" style="height:auto; transform:none; opacity:1; cursor:default;">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 text-charcoal">
-                    <div class="flex flex-col"><label class="text-[10px] font-bold uppercase mb-2">City</label><select id="in-stay-city"><option>Budapest</option><option>Vienna</option></select></div>
-                    <div class="lg:col-span-2 flex flex-col"><label class="text-[10px] font-bold uppercase mb-2">Residency Name</label><input type="text" id="in-stay-name" placeholder="Hotel name / Address..."></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-ink">
-                    <div class="flex flex-col text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">Check In</label><input type="date" id="in-stay-in"></div>
-                    <div class="flex flex-col text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">Time</label><input type="time" id="in-stay-in-t"></div>
-                    <div class="flex flex-col text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">Check Out</label><input type="date" id="in-stay-out"></div>
-                    <div class="flex flex-col text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">Time</label><input type="time" id="in-stay-out-t"></div>
-                </div>
-                <div class="flex justify-end gap-6 text-charcoal"><button onclick="toggleForm('stay-form')" class="text-sm font-bold uppercase tracking-widest hover:underline">Cancel</button><button onclick="addStay()" class="btn-primary px-12 text-white">Register Stay</button></div>
-            </div>
-            <div id="stay-grid" class="grid grid-cols-1 gap-12 px-4"></div>
+        <section id="stay-view" class="tab-content px-4 lg:px-8">
+            <div id="stay-grid" class="space-y-8"></div>
         </section>
 
-        <!-- VOYAGE VIEW -->
-        <section id="voyage-view" class="tab-content text-ink">
-            <div class="flex justify-between items-center mb-12 px-4">
-                <div>
-                    <h2 class="font-serif text-7xl italic">Voyage Log</h2>
-                    <h5 class="text-charcoal font-bold uppercase text-xs tracking-[0.4em] mt-2 text-ink">Transit Manifest</h5>
-                </div>
-                <button onclick="toggleForm('trans-form')" class="btn-primary px-10 text-white">New Leg +</button>
-            </div>
-            <div id="trans-form" class="hidden sketchbook-card p-12 mb-16 bg-white shadow-float mx-4" style="height:auto; transform:none; opacity:1; cursor:default;">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[11px] font-bold uppercase mb-2 block">Kind</label><select id="in-tr-kind"><option>✈️ Plane</option><option>🚆 Train</option><option>🚌 Bus</option></select></div>
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">Travel Date</label><input type="date" id="in-tr-date"></div>
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">From</label><input type="text" id="in-tr-from"></div>
-                    <div class="flex flex-col text-ink text-charcoal"><label class="text-[10px] font-bold uppercase mb-2 block">To</label><input type="text" id="in-tr-to"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 items-end text-charcoal">
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Departure</label><input type="time" id="in-tr-start"></div>
-                    <div class="flex flex-col text-ink"><label class="text-[10px] font-bold uppercase mb-2 block">Arrival</label><input type="time" id="in-tr-end"></div>
-                    <button onclick="addVoyage()" class="btn-primary w-full text-white">Record Leg</button>
-                </div>
-            </div>
-            <div id="trans-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4"></div>
-        </section>
-
-        <!-- BUDAPEST EXPLORER -->
-        <section id="budapest-view" class="tab-content text-ink">
-            <div class="text-center mb-12 px-4">
+        <!-- BUDAPEST VIEW -->
+        <section id="budapest-view" class="tab-content">
+            <div class="text-center mb-12">
                 <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 inline-block">Budapest</h2>
                 <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic">Thermals & Grandeur</h5>
             </div>
             
-            <div class="flex justify-center gap-4 mb-12">
-                <button id="bud-all" onclick="filterCity('Budapest', 'all')" class="filter-btn active">All</button>
-                <button id="bud-Sights" onclick="filterCity('Budapest', 'Sights')" class="filter-btn">Sights</button>
-                <button id="bud-Food" onclick="filterCity('Budapest', 'Food')" class="filter-btn">Food</button>
+            <div class="flex justify-center gap-4 mb-8">
+                <button onclick="filterCity('Budapest', 'all')" class="filter-btn active">All</button>
+                <button onclick="filterCity('Budapest', 'Sights')" class="filter-btn">Sights</button>
+                <button onclick="filterCity('Budapest', 'Food')" class="filter-btn">Food</button>
             </div>
 
             <div class="carousel-container">
@@ -404,17 +330,17 @@
             </div>
         </section>
 
-        <!-- VIENNA EXPLORER -->
-        <section id="vienna-view" class="tab-content text-ink">
+        <!-- VIENNA VIEW -->
+        <section id="vienna-view" class="tab-content">
             <div class="text-center mb-12 px-4">
                 <h2 class="font-serif text-8xl italic border-l-[12px] border-ink pl-10 inline-block">Vienna</h2>
-                <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic">Imperial Hub</h5>
+                <h5 class="text-charcoal font-bold uppercase text-base tracking-[0.4em] mt-4 italic text-ink">Imperial Hub</h5>
             </div>
 
-            <div class="flex justify-center gap-4 mb-12">
-                <button id="vie-all" onclick="filterCity('Vienna', 'all')" class="filter-btn active">All</button>
-                <button id="vie-Sights" onclick="filterCity('Vienna', 'Sights')" class="filter-btn">Sights</button>
-                <button id="vie-Food" onclick="filterCity('Vienna', 'Food')" class="filter-btn">Food</button>
+            <div class="flex justify-center gap-4 mb-8">
+                <button onclick="filterCity('Vienna', 'all')" class="filter-btn active">All</button>
+                <button onclick="filterCity('Vienna', 'Sights')" class="filter-btn">Sights</button>
+                <button onclick="filterCity('Vienna', 'Food')" class="filter-btn">Food</button>
             </div>
 
             <div class="carousel-container">
@@ -430,14 +356,14 @@
         </section>
 
         <!-- FUND VIEW -->
-        <section id="fund-view" class="tab-content text-ink">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 text-charcoal px-4">
-                <div class="sketchbook-card p-12 lg:col-span-1 bg-white shadow-soft relative text-center" style="height:auto; transform:none; opacity:1; cursor:default;">
+        <section id="fund-view" class="tab-content px-4 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-20">
+                <div class="sketchbook-card p-12 lg:col-span-1 bg-white shadow-soft relative text-center" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
                     <h3 class="font-serif text-3xl mb-12 italic border-b-2 border-paper pb-6">Spending Split</h3>
                     <div class="relative h-64 mb-16 mx-auto w-full">
                         <canvas id="fundChart"></canvas>
                         <div class="chart-center-text">
-                            <span class="text-[10px] uppercase font-bold text-charcoal tracking-widest block opacity-70">Remaining Fund</span>
+                            <span class="text-[10px] uppercase font-bold text-charcoal tracking-widest block opacity-70 text-ink">Remaining Fund</span>
                             <span class="text-4xl font-serif font-bold italic text-ink" id="chart-inner-val">¥460k</span>
                         </div>
                     </div>
@@ -447,8 +373,8 @@
                     </div>
                 </div>
                 <div class="lg:col-span-2 space-y-12">
-                    <div class="sketchbook-card p-10 bg-white shadow-float border-t-4 border-t-ink text-charcoal" style="height:auto; transform:none; opacity:1; cursor:default;">
-                        <h4 class="font-serif text-2xl mb-8 italic text-ink">Register Transaction</h4>
+                    <div class="sketchbook-card p-10 bg-white shadow-float border-t-4 border-t-ink" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
+                        <h4 class="font-serif text-2xl mb-8 italic">Register Transaction</h4>
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-end">
                             <div class="flex flex-col"><label class="text-[11px] font-bold uppercase mb-2">Item</label><input type="text" id="in-f-item" placeholder="Lunch"></div>
                             <div class="flex flex-col"><label class="text-[11px] font-bold uppercase mb-2">Amount</label><input type="number" id="in-f-amt" placeholder="0"></div>
@@ -456,11 +382,10 @@
                             <button onclick="addFundEntry()" class="btn-primary w-full text-white">Record</button>
                         </div>
                     </div>
-
-                    <div class="sketchbook-card p-0 bg-white overflow-hidden shadow-soft mt-10" style="height:auto; transform:none; opacity:1; cursor:default;">
+                    <div class="sketchbook-card p-0 bg-white overflow-hidden shadow-soft mt-10" style="height:auto; transform:none; opacity:1; cursor:default; flex:none;">
                         <table class="w-full text-left">
-                            <thead class="bg-paper border-b-2 border-ink text-charcoal"><tr class="font-serif text-2xl"><th class="p-8">Detail</th><th class="p-8 text-center">By</th><th class="p-8 text-right">Amt</th><th class="p-8 w-16"></th></tr></thead>
-                            <tbody id="ledger-body" class="text-xl italic font-bold"></tbody>
+                            <thead class="bg-paper border-b-2 border-ink text-charcoal"><tr><th class="p-8 font-serif text-2xl">Detail</th><th class="p-8 text-center font-serif text-2xl text-ink">By</th><th class="p-8 text-right font-serif text-2xl">Amt</th><th class="p-8 w-16"></th></tr></thead>
+                            <tbody id="ledger-body" class="text-xl italic font-bold text-charcoal"></tbody>
                         </table>
                     </div>
                 </div>
@@ -470,14 +395,12 @@
 
     <!-- UTILITIES -->
     <div id="toast" class="success-toast">✓ Diary Updated</div>
-    <div onclick="window.scrollTo(0,0)" id="back-top" class="back-to-top shadow-lg">↑</div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { initializeFirestore, persistentLocalCache, collection, onSnapshot, addDoc, deleteDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDBEI-c2Qg_sGBmzfNgAOxsuu8XFzoiGLY",
             authDomain: "bluedanubediary-ebdd5.firebaseapp.com",
@@ -492,7 +415,7 @@
         const db = initializeFirestore(app, { localCache: persistentLocalCache() });
         const appId = 'bluedanubediary-ebdd5';
 
-        // --- GLOBAL STATE ---
+        // --- STATE ---
         let currentUserId = null;
         let currentView = 'dashboard';
         let currentFilters = { Budapest: 'all', Vienna: 'all' };
@@ -509,10 +432,6 @@
             { id: 'seed-stay-1', city: 'Budapest', name: 'Danube Riverside Apartment', inD: '2026-03-06', inT: '15:00', outD: '2026-03-12', outT: '11:00', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=400&h=350&auto=format&fit=crop' }
         ];
 
-        let voyages = [
-            { id: 'seed-voyage-1', kind: '✈️ Plane', date: '2026-03-06', from: 'Osaka (KIX)', to: 'Budapest (BUD)', start: '10:00', end: '17:40' }
-        ];
-        
         const dossierLibrary = {
             "Fisherman's Bastion": { history: "Constructed 1895-1902 by Frigyes Schulek. Seven towers represent original Magyar chieftains.", tips: "Arrive at 06:00 for sunrise shots.", addr: "Castle Hill, 1014 Budapest", hours: "24/7", img: "https://images.unsplash.com/photo-1565426122501-c30089874828?q=80&w=700&h=450&auto=format&fit=crop" },
             "Hungarian State Opera": { history: "Designed by Miklós Ybl (1884). Pristine gold leaf gold interior.", tips: "Dress code is smart for performances.", addr: "Andrássy út 22, 1061 Budapest", hours: "Tours 14:00/15:00", img: "https://images.unsplash.com/photo-1516307361728-4222a7c1a011?q=80&w=700&h=450&auto=format&fit=crop" },
@@ -522,15 +441,16 @@
 
         let discoveries = [
             { id: 'seed-d-1', city: 'Budapest', type: 'Sights', name: "Fisherman's Bastion", note: "Arrive at sunrise for the best light.", img: 'https://images.unsplash.com/photo-1565426122501-c30089874828?q=80&w=700&h=450&auto=format&fit=crop' },
-            { id: 'seed-d-4', city: 'Budapest', type: 'Sights', name: "Hungarian State Opera", note: "Stunning gold interiors.", img: 'https://images.unsplash.com/photo-1516307361728-4222a7c1a011?q=80&w=700&h=450&auto=format&fit=crop' },
-            { id: 'seed-d-8', city: 'Budapest', type: 'Food', name: "Menza", note: "Retro socialist-chic duck leg.", img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=700&h=450&auto=format&fit=crop' },
-            { id: 'seed-d-12', city: 'Vienna', type: 'Food', name: "Café Central", note: "Freud's old luxury hangout.", img: 'https://images.unsplash.com/photo-1520116468816-95b69f847357?q=80&w=700&h=450&auto=format&fit=crop' },
-            { id: 'seed-d-10', city: 'Vienna', type: 'Food', name: "Schnitzelwirt", note: "⚠️ CASH ONLY. Massive portions.", img: 'https://images.unsplash.com/photo-1599923208226-aa3f403b9ad0?q=80&w=700&h=450&auto=format&fit=crop' }
+            { id: 'seed-d-2', city: 'Budapest', type: 'Sights', name: "Hungarian State Opera", note: "Stunning gold interiors.", img: 'https://images.unsplash.com/photo-1516307361728-4222a7c1a011?q=80&w=700&h=450&auto=format&fit=crop' },
+            { id: 'seed-d-3', city: 'Budapest', type: 'Food', name: "Menza", note: "Retro socialist-chic duck leg.", img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=700&h=450&auto=format&fit=crop' },
+            { id: 'seed-d-10', city: 'Vienna', type: 'Food', name: "Schnitzelwirt", note: "⚠️ CASH ONLY. Massive portions.", img: 'https://images.unsplash.com/photo-1599923208226-aa3f403b9ad0?q=80&w=700&h=450&auto=format&fit=crop' },
+            { id: 'seed-d-12', city: 'Vienna', type: 'Food', name: "Café Central", note: "Freud's old haunt. Patisserie is art.", img: 'https://images.unsplash.com/photo-1520116468816-95b69f847357?q=80&w=700&h=450&auto=format&fit=crop' }
         ];
 
         let expenses = [{ id: 'seed-ex-1', item: 'Flight Deposits', payer: 'Cody', amount: 165000 }];
 
-        // --- INTERNAL HELPERS ---
+        // --- HELPERS ---
+
         function showToast(m) {
             const t = document.getElementById('toast');
             if(t){ t.innerText = m; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1800); }
@@ -567,6 +487,7 @@
         }
 
         // --- RENDERERS ---
+
         function renderTasks() {
             const cols = { todo: 'col-todo', progress: 'col-progress', done: 'col-done' };
             Object.values(cols).forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = ''; });
@@ -575,12 +496,12 @@
                 scrap.id = `task-card-${t.id}`;
                 scrap.className = `p-4 sketchbook-card bg-white shadow-soft ${t.status === 'done' ? 'opacity-40 grayscale' : ''}`;
                 scrap.style.cssText = "height:auto; transform:none; opacity:1; cursor:default; flex:none;";
-                let btns = `<div class="flex gap-2 mt-4">`;
+                let btns = `<div class="flex gap-2 mt-4 text-ink">`;
                 if(t.status === 'todo') btns += `<button onclick="window.moveTask('${t.id}', 'progress')" class="btn-secondary flex-1 text-[10px]">Start →</button>`;
                 else if(t.status === 'progress') btns += `<button onclick="window.moveTask('${t.id}', 'todo')" class="btn-secondary px-3 text-[10px]">←</button><button onclick="window.moveTask('${t.id}', 'done')" class="btn-primary flex-grow text-[10px] text-white">Done!</button>`;
                 else btns += `<button onclick="window.moveTask('${t.id}', 'progress')" class="btn-secondary flex-1 text-[10px]">← Undo</button>`;
                 btns += `</div>`;
-                scrap.innerHTML = `<button onclick="window.requestDeletion('tasks', '${t.id}')" class="absolute top-4 right-4 text-terracotta text-2xl font-bold opacity-30 hover:opacity-100 transition px-2">×</button><div><span class="font-serif italic font-bold text-lg text-ink">"${t.text}"</span></div>${btns}`;
+                scrap.innerHTML = `<button onclick="window.requestDeletion('tasks', '${t.id}')" class="absolute top-4 right-4 text-terracotta text-2xl font-bold opacity-30 hover:opacity-100 transition px-2">×</button><div class="flex justify-between items-start text-ink"><span class="font-serif italic font-bold text-lg text-ink">"${t.text}"</span></div>${btns}`;
                 const targetCol = document.getElementById(cols[t.status]);
                 if (targetCol) targetCol.appendChild(scrap);
             });
@@ -602,30 +523,11 @@
                         <button onclick="window.requestDeletion('stays', '${s.id}')" class="absolute top-4 right-4 text-terracotta text-3xl font-bold opacity-20 hover:opacity-100 transition">×</button>
                         <div class="flex justify-between border-b pb-3 mb-6 font-bold uppercase tracking-widest text-meadow"><span>${s.city} Lodge</span></div>
                         <h4 class="font-serif text-4xl font-bold mb-8 italic">"${s.name || 'Unnamed Residency'}"</h4>
-                        <div class="grid grid-cols-2 gap-8 font-bold border-l-4 border-paper pl-8 text-charcoal">
-                            <div><p class="text-[9px] uppercase tracking-widest leading-none mb-1">Arrival</p><p class="text-xl text-ink">${s.inD || 'TBD'}</p><p class="text-xs italic opacity-60">at ${s.inT || '--'}</p></div>
-                            <div><p class="text-[9px] uppercase tracking-widest leading-none mb-1">Departure</p><p class="text-xl text-ink">${s.outD || 'TBD'}</p><p class="text-xs italic opacity-60">at ${s.outT || '--'}</p></div>
+                        <div class="grid grid-cols-2 gap-8 font-bold border-l-4 border-paper pl-8 text-charcoal text-ink">
+                            <div><p class="text-[9px] uppercase tracking-widest leading-none mb-1 text-ink">Arrival</p><p class="text-xl text-ink">${s.inD || 'TBD'}</p><p class="text-xs italic opacity-60 text-ink">at ${s.inT || '--'}</p></div>
+                            <div><p class="text-[9px] uppercase tracking-widest leading-none mb-1 text-ink text-ink text-ink">Departure</p><p class="text-xl text-ink text-ink text-ink">${s.outD || 'TBD'}</p><p class="text-xs italic opacity-60 text-ink text-ink text-ink">at ${s.outT || '--'}</p></div>
                         </div>
                     </div>`;
-                g.appendChild(el);
-            });
-        }
-
-        function renderVoyages() {
-            const g = document.getElementById('trans-grid'); if(!g) return; g.innerHTML = '';
-            voyages.forEach(v => {
-                const el = document.createElement('div');
-                el.id = `voyage-card-${v.id}`;
-                el.className = "ticket-stub card-layer p-10 flex flex-col justify-between shadow-soft bg-white rounded-lg border border-sand-light relative sketchbook-card";
-                el.style.cssText = "height:auto; transform:none; opacity:1; cursor:default; flex:none;";
-                el.innerHTML = `<button onclick="window.requestDeletion('voyages', '${v.id}')" class="absolute top-4 right-4 text-charcoal font-bold text-3xl opacity-20 hover:opacity-100 transition">×</button>
-                    <div class="flex justify-between items-center mb-8"><span class="text-xs font-bold opacity-40 uppercase tracking-widest">${v.kind}</span></div>
-                    <p class="font-serif italic text-3xl text-terracotta font-bold mb-4">${v.date || 'TBD'}</p>
-                    <div class="space-y-4 border-l-4 border-paper pl-8 mb-8 font-serif italic text-3xl text-charcoal">
-                        <p class="text-charcoal text-[11px] uppercase font-bold tracking-[0.4em] mb-1">Route</p>
-                        <p class="leading-tight text-ink font-bold text-ink">${v.from} ➔ ${v.to}</p>
-                    </div>
-                    <div class="pt-6 border-t-2 border-dotted border-paper flex justify-between font-bold text-xs uppercase text-charcoal"><span>Dep: ${v.start || '--'}</span><span>Arr: ${v.end || '--'}</span></div>`;
                 g.appendChild(el);
             });
         }
@@ -655,8 +557,8 @@
                             <h4 class="font-serif text-3xl font-bold italic text-ink mb-4">"${item.name}"</h4>
                         </div>
                         <div class="card-reveal space-y-4">
-                            <p class="text-base text-charcoal font-semibold italic border-l-4 border-paper-dark pl-4">"${item.note}"</p>
-                            <div class="pt-4 border-t-2 border-dotted text-[13px] font-bold uppercase tracking-widest text-terracotta italic">View detail page →</div>
+                            <p class="text-base text-charcoal font-semibold italic border-l-4 border-paper-dark pl-4 text-charcoal">"${item.note}"</p>
+                            <div class="pt-4 border-t-2 border-dotted text-[13px] font-bold uppercase tracking-widest text-terracotta italic text-ink">View detail page →</div>
                         </div>
                     </div>
                     <button onclick="event.stopPropagation(); window.requestDeletion('discoveries', '${item.id}')" 
@@ -665,7 +567,7 @@
                 track.appendChild(card);
             });
 
-            document.getElementById(city.toLowerCase() + '-page-num').innerText = `01 / ${data.length || '01'}`;
+            document.getElementById(city.toLowerCase() + '-page-num').innerText = `01 / ${data.length.toString().padStart(2, '0')}`;
             initCarouselObserver(city);
         }
 
@@ -700,7 +602,7 @@
                 if(ex.payer === 'Cody') cC += amt; else aA += amt;
                 const row = document.createElement('tr');
                 row.className = "border-b-4 border-dotted border-paper hover:bg-alert-wash transition-colors text-ink text-charcoal";
-                row.innerHTML = `<td class="p-8 font-serif italic text-3xl font-bold">"${ex.item}"</td><td class="p-8 text-center text-charcoal"><span class="px-6 py-2 rounded-full text-xs font-bold uppercase ${ex.payer === 'Cody' ? 'bg-terracotta text-white' : 'bg-meadow text-white'}">${ex.payer}</span></td><td class="p-8 text-right font-bold text-3xl">¥${amt.toLocaleString()}</td><td class="p-8 text-center"><button onclick="window.requestDeletion('expenses', '${ex.id}')" class="text-charcoal opacity-20 hover:opacity-100 hover:text-terracotta font-bold text-5xl transition">×</button></td>`;
+                row.innerHTML = `<td class="p-8 font-serif italic text-3xl font-bold">"${ex.item}"</td><td class="p-8 text-center text-charcoal"><span class="px-6 py-2 rounded-full text-xs font-bold uppercase ${ex.payer === 'Cody' ? 'bg-terracotta text-white' : 'bg-meadow text-white'}">${ex.payer}</span></td><td class="p-8 text-right font-bold text-3xl text-charcoal">¥${amt.toLocaleString()}</td><td class="p-8 text-center"><button onclick="window.requestDeletion('expenses', '${ex.id}')" class="text-charcoal opacity-20 hover:opacity-100 hover:text-terracotta font-bold text-5xl transition">×</button></td>`;
                 body.appendChild(row);
             });
             const sC = document.getElementById('sum-cody'); if(sC) sC.innerText = `¥${cC.toLocaleString()}`;
@@ -709,6 +611,7 @@
         }
 
         // --- PUBLIC API EXPOSURE ---
+
         window.switchTab = (view) => {
             currentView = view;
             const mobileMenu = document.getElementById('mobile-menu');
@@ -722,7 +625,6 @@
             });
             if(view === 'fund') renderFund();
             else if(view === 'stay') renderStays();
-            else if(view === 'voyage') renderVoyages();
             else if(view === 'budapest' || view === 'vienna') renderGrids(view.charAt(0).toUpperCase() + view.slice(1));
             else if(view === 'dashboard') renderTasks();
             window.scrollTo(0, 0);
@@ -736,7 +638,7 @@
             const val = document.getElementById('global-search').value.toLowerCase();
             if(val.includes('bud')) window.switchTab('budapest'); 
             else if(val.includes('vie')) window.switchTab('vienna'); 
-            else if(val.includes('fund')) window.switchTab('fund');
+            else if(val.includes('fun')) window.switchTab('fund');
         };
 
         window.filterCity = (city, type) => {
@@ -745,8 +647,8 @@
             const filterContainer = document.querySelector(containerSelector);
             if (filterContainer) {
                 filterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                const filterId = (city === 'Budapest' ? 'bud-' : 'vie-') + type;
-                const activeBtn = document.getElementById(filterId); if (activeBtn) activeBtn.classList.add('active');
+                const btn = Array.from(filterContainer.querySelectorAll('.filter-btn')).find(b => b.innerText.toLowerCase() === type.toLowerCase());
+                if (activeBtn) activeBtn.classList.add('active');
             }
             renderGrids(city);
         };
@@ -774,22 +676,6 @@
             toggleForm('stay-form'); showToast("Stay Logged.");
         };
 
-        window.addVoyage = async () => {
-            if(!currentUserId) return;
-            const entry = { kind: document.getElementById('in-tr-kind').value, date: document.getElementById('in-tr-date').value, from: document.getElementById('in-tr-from').value, to: document.getElementById('in-tr-to').value, start: document.getElementById('in-tr-start').value, end: document.getElementById('in-tr-end').value };
-            await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'voyages'), entry);
-            toggleForm('trans-form'); showToast("Journey Added.");
-        };
-
-        window.addDiscovery = async (city) => {
-            const p = city === 'Budapest' ? 'bud' : 'vie';
-            const name = document.getElementById(`in-${p}-name`).value;
-            if(!name || !currentUserId) return;
-            await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'discoveries'), { city, type: document.getElementById(`in-${p}-type`).value, name, note: document.getElementById(`in-${p}-note`).value });
-            toggleForm(`${p}-add-form`); showToast("Diary Updated.");
-            document.getElementById(`in-${p}-name`).value = ''; document.getElementById(`in-${p}-note`).value = '';
-        };
-
         window.addFundEntry = async () => {
             const i = document.getElementById('in-f-item').value, a = document.getElementById('in-f-amt').value, p = document.getElementById('in-f-payer').value;
             if(!i || !a || !currentUserId) return;
@@ -804,6 +690,7 @@
             document.getElementById('modal-body').innerHTML = `
                 <div class="flex justify-between items-start mb-2 text-ink">
                     <span class="text-xs font-bold text-meadow uppercase block text-meadow">${item.city} • ${item.type}</span>
+                    <button onclick="window.toggleEditDiscovery('${item.id}')" class="text-charcoal opacity-40 hover:opacity-100 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></button>
                 </div>
                 <h2 class="font-serif text-5xl font-bold italic text-ink mb-6">"${item.name}"</h2>
                 <div class="mb-10 mx-auto w-full max-w-[700px] h-[450px]">
@@ -816,10 +703,36 @@
                     </div>
                     <div class="bg-paper p-6 rounded-lg space-y-6 text-sm text-charcoal">
                         <div><strong class="uppercase text-[10px] tracking-widest text-charcoal block">Address</strong><p class="font-bold text-ink">${info.addr}</p></div>
-                        <div><strong class="uppercase text-[10px] tracking-widest text-charcoal block">Hours</strong><p class="font-bold text-ink">${info.hours}</p></div>
+                        <div><strong class="uppercase text-[10px] tracking-widest text-charcoal block text-ink">Hours</strong><p class="font-bold text-ink">${info.hours}</p></div>
                     </div>
                 </div>`;
             document.getElementById('detail-modal').style.display = 'flex';
+        };
+
+        window.toggleEditDiscovery = (id) => {
+            const item = discoveries.find(d => d.id == id);
+            const info = dossierLibrary[item.name] || { history: "", tips: "", addr: "", hours: "" };
+            document.getElementById('modal-body').innerHTML = `
+                <div class="flex justify-between items-center mb-6"><h3 class="font-serif text-3xl italic text-ink">Edit "${item.name}"</h3><button onclick="window.openDetail('${id}')" class="text-xs font-bold text-gray-400 hover:text-ink">Cancel</button></div>
+                <div class="space-y-6 text-ink">
+                    <div><label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block text-ink">Historical Context</label><textarea id="edit-history" class="edit-input text-ink">${info.history}</textarea></div>
+                    <div><label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block text-ink">Traveler’s Tips</label><textarea id="edit-tips" class="edit-input text-ink">${info.tips}</textarea></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div><label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block text-ink text-ink">Address</label><input type="text" id="edit-addr" value="${info.addr}" class="edit-input text-ink"></div>
+                        <div><label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block text-ink text-ink">Hours</label><input type="text" id="edit-hours" value="${info.hours}" class="edit-input text-ink"></div>
+                    </div>
+                    <button onclick="window.saveDiscoveryEdit('${id}')" class="btn-primary w-full text-white mt-4 text-white text-white text-white">Save Changes</button>
+                </div>`;
+        };
+
+        window.saveDiscoveryEdit = async (id) => {
+            const item = discoveries.find(d => d.id == id);
+            const data = { history: document.getElementById('edit-history').value, tips: document.getElementById('edit-tips').value, addr: document.getElementById('edit-addr').value, hours: document.getElementById('edit-hours').value };
+            dossierLibrary[item.name] = data;
+            if (currentUserId && !id.toString().startsWith('seed-')) {
+                await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'discoveries', id), data);
+            }
+            showToast("✓ Details Updated"); window.openDetail(id);
         };
 
         window.requestDeletion = (type, id) => {
@@ -827,14 +740,13 @@
             if (type === 'discoveries') cardId = `discovery-card-${id}`;
             else if (type === 'tasks') cardId = `task-card-${id}`;
             else if (type === 'stays') cardId = `stay-card-${id}`;
-            else if (type === 'voyages') cardId = `voyage-card-${id}`;
             
             const targetCard = document.getElementById(cardId);
             if (type === 'expenses') { if (confirm("Discard this expense?")) window.confirmDeletion(type, id); return; }
             if (targetCard) {
                 const ov = document.createElement('div');
                 ov.className = 'confirm-overlay shadow-float';
-                ov.innerHTML = `<p class="font-serif text-2xl italic mb-6 text-ink">Discard this entry?</p><div class="flex gap-4 w-full px-4"><button onclick="this.closest('.confirm-overlay').remove()" class="btn-secondary flex-1 text-ink">Keep</button><button onclick="window.confirmDeletion('${type}', '${id}', '${cardId}')" class="btn-primary flex-1 text-white">Yes</button></div>`;
+                ov.innerHTML = `<p class="font-serif text-2xl italic mb-6 text-ink">Discard entry?</p><div class="flex gap-4 w-full px-4"><button onclick="this.closest('.confirm-overlay').remove()" class="btn-secondary flex-1 text-ink">Keep</button><button onclick="window.confirmDeletion('${type}', '${id}', '${cardId}')" class="btn-primary flex-1 text-white">Yes</button></div>`;
                 targetCard.appendChild(ov);
             }
         };
@@ -846,8 +758,6 @@
                 if(!currentUserId || id.toString().startsWith('seed-')) {
                     if(type === 'tasks') tasks = tasks.filter(x => x.id !== id);
                     if(type === 'stays') stays = stays.filter(x => x.id !== id);
-                    if(type === 'voyages') voyages = voyages.filter(x => x.id !== id);
-                    if(type === 'expenses') expenses = expenses.filter(x => x.id !== id);
                     if(type === 'discoveries') discoveries = discoveries.filter(x => x.id !== id);
                     window.switchTab(currentView); showToast("✓ Removed"); return;
                 }
@@ -856,9 +766,8 @@
             }, 300);
         };
 
-        // --- DATA SYNC ---
         function setupSync() {
-            const colNames = ['tasks', 'stays', 'voyages', 'discoveries', 'expenses'];
+            const colNames = ['tasks', 'stays', 'discoveries', 'expenses'];
             colNames.forEach(colName => {
                 const q = collection(db, 'artifacts', appId, 'public', 'data', colName);
                 onSnapshot(q, { includeMetadataChanges: true }, (snap) => {
@@ -866,7 +775,6 @@
                     if (!snap.empty || !snap.metadata.fromCache) {
                         if (colName === 'tasks') { tasks = data.length > 0 ? data : tasks; renderTasks(); }
                         if (colName === 'stays') { stays = data.length > 0 ? data : stays; renderStays(); }
-                        if (colName === 'voyages') { voyages = data.length > 0 ? data : voyages; renderVoyages(); }
                         if (colName === 'discoveries') { discoveries = data.length > 0 ? data : discoveries; renderGrids('Budapest'); renderGrids('Vienna'); }
                         if (colName === 'expenses') { expenses = data.length > 0 ? data : expenses; renderFund(); }
                     }
@@ -880,6 +788,7 @@
         }
 
         window.onscroll = () => { const b = document.getElementById('back-top'); if(b) b.style.display = (window.pageYOffset > 500) ? 'flex' : 'none'; };
+        
         window.onload = () => { 
             initAuthAndData(); updateCountdown(); setInterval(updateCountdown, 86400000); switchTab('dashboard');
         };
